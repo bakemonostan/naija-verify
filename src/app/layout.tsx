@@ -1,3 +1,4 @@
+import { ReduxProvider } from '@/redux/provider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Prompt, Rubik } from 'next/font/google'
@@ -21,7 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fontPrompt.className}>{children}</body>
+      <body className={fontPrompt.className}>
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+      </body>
     </html>
   )
 }
