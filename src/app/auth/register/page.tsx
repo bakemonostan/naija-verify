@@ -1,5 +1,7 @@
+import SelectUser from "@/components/Auth/SelectUser";
+
 export default function page() {
     return (
-        <div>Register</div>
+        <SelectUser />
     )
 }

@@ -3,12 +3,19 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Prompt, Rubik } from 'next/font/google'
 
-const fontPrompt = Prompt(
+const titleFont = Prompt(
   {
     preload: false,
     weight: ['400', '500', '600', '700'],
+    variable: '--font-prompt'
   }
 )
+
+const textFont = Rubik({
+  preload: false,
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-rubik'
+})
 
 export const metadata: Metadata = {
   title: 'Naija Verify',
@@ -21,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={fontPrompt.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body >
         <ReduxProvider>
           {children}
         </ReduxProvider>

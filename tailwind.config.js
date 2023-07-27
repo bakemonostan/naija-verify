@@ -16,7 +16,10 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        prompt: ["Prompt", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"],
+      },
       colors: {
         primary: {
           DEFAULT: "#0AB34E",
