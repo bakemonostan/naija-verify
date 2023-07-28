@@ -1,4 +1,5 @@
 import { ReduxProvider } from '@/redux/provider'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Prompt, Rubik } from 'next/font/google'
@@ -29,11 +30,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body >
-        <ReduxProvider>
+      <ReduxProvider >
+        <body >
           {children}
-        </ReduxProvider>
-      </body>
+        </body>
+      </ReduxProvider>
+
     </html>
   )
 }
