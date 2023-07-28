@@ -116,7 +116,7 @@ export default function CreateAccount() {
                             {
                                 nigeriaStates.map((state) => {
                                     return (
-                                        <option {...register(state)} key={state} value={state}>{state}</option>
+                                        <option key={state} value={state}>{state}</option>
                                     )
                                 })
                             }

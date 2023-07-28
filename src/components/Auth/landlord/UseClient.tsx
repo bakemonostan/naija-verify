@@ -1,5 +1,14 @@
+'use client'
+import CreateAccount from "./CreateAccount"
+import LandlordDetails from "./LandlordDetails"
+import Login from "./Login"
+
 export default function UseClient() {
     return (
-        <div>UseClient</div>
+        <>
+            <CreateAccount />
+            <Login />
+            <LandlordDetails />
+        </>
     )
 }
