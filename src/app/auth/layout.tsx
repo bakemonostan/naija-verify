@@ -7,7 +7,7 @@ export default function AuthLayout({
     children: React.ReactNode
 }) {
     return <main className='lg:flex'>
-        <section className='lg:pt-16 bg-primary-10 lg:w-5/12 lg:h-screen'>
+        <section className='lg:pt-16 lg:flex bg-primary-10 lg:w-5/12 '>
             <div className="flex flex-col max-w-sm mx-auto space-y-8 p-7 lg:px-12 lg:max-w-3xl ">
                 <div className="lg:hidden">
                     <LogoIcon />

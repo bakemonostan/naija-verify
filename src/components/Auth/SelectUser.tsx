@@ -8,11 +8,12 @@ import { Button } from "../ui/button";
 import HouseIcon from "../Icons/HouseIcon";
 import KeyIcon from "../Icons/keyIcon";
 import LogoIcon from "../Icons/LogoIcon";
+import { useRouter } from 'next/navigation'
 
 export default function SelectUser() {
     const userType = useAppSelector((state) => state.auth.value.selectedUser);
     const dispatch = useAppDispatch();
-
+    const router = useRouter()
     // Function to handle radio button change
     const handleRadioChange = (selectedOption: "landlord" | "renter") => {
         dispatch(selectUser({
@@ -54,6 +55,7 @@ export default function SelectUser() {
             <div className="w-full">
                 <div className="w-full">
                     <Button
+                        onClick={() => router.push(`/auth/register/${userType}`)}
                         disabled={!userType}
                     >
                         Proceed
