@@ -22,7 +22,7 @@ export default function SelectUser() {
     };
 
     return (
-        <div className="w-full h-full mr-2 space-y-6  lg:pt-6 lg:max-w-[28rem]">
+        <div className="w-full h-screen mr-2 space-y-6  lg:pt-6 lg:max-w-[28rem]">
             <div className="space-y-4 lg:space-y-1 ">
                 <div className="hidden lg:block lg:py-5 lg:pb-14">
                     <LogoIcon />

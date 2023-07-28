@@ -6,7 +6,7 @@ import { Slot } from "@radix-ui/react-slot"
 
 
 const inputVariants = cva(
-  "flex w-full rounded-sm border border-neutral-200 bg-white px-2 py-1.5 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  "flex w-full font-[400] rounded-sm border border-seconday-10 bg-white px-2 py-3 text-sm ring-offset-white file:border-0 text-secondary-10 mt-2 file:bg-transparent file:text-sm file:font-medium placeholder:text-secondary-10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 placeholder:font-[400] focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -14,6 +14,7 @@ const inputVariants = cva(
         secondary: "",
         checkbok: "",
         radio: "",
+        icon: "",
       },
       defaultVariants: {
         variant: "primary",
@@ -27,11 +28,12 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
   VariantProps<typeof inputVariants> {
   asChild?: boolean
+  value?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, type, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "input"
+  ({ className, variant, type, ...props }, ref) => {
+    const Comp = "input"
     return (
       <Comp
         type={type}

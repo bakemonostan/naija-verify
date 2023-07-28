@@ -13,7 +13,7 @@ type InitialState = {
 
 const initialState = {
   value: {
-    isLoggedIn: false,
+    isLoggedIn: true,
   } as AuthState,
 } as InitialState;
 
