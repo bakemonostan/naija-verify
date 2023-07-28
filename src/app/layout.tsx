@@ -9,7 +9,12 @@ const fontPrompt = Prompt(
     weight: ['400', '500', '600', '700'],
   }
 )
+const rubik_c = Rubik({
+  preload:false,
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-rubik',
 
+})
 export const metadata: Metadata = {
   title: 'Naija Verify',
   description: 'Housing solutions for Nigerians',
@@ -22,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fontPrompt.className}>
+      <body className={`${rubik_c.variable}`}>
         <ReduxProvider>
           {children}
         </ReduxProvider>

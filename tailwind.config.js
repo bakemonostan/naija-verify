@@ -16,7 +16,9 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        rubik: 'var(--font-rubik)',
+      },
       colors: {
         primary: {
           DEFAULT: "#0AB34E",
