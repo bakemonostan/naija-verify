@@ -19,6 +19,7 @@ module.exports = {
       fontFamily: {
         prompt: ["Prompt", "sans-serif"],
         rubik: ["Rubik", "sans-serif"],
+        rubik: "var(--font-rubik)",
       },
       colors: {
         primary: {

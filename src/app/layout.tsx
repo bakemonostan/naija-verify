@@ -11,13 +11,12 @@ const titleFont = Prompt(
     variable: '--font-prompt'
   }
 )
-
-const textFont = Rubik({
+const rubik_c = Rubik({
   preload: false,
   weight: ['400', '500', '600', '700'],
-  variable: '--font-rubik'
-})
+  variable: '--font-rubik',
 
+})
 export const metadata: Metadata = {
   title: 'Naija Verify',
   description: 'Housing solutions for Nigerians',
@@ -29,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <ReduxProvider >
-        <body >
+    <html lang="en">
+      <ReduxProvider>
+        <body className={`${rubik_c.variable}`}>
           {children}
         </body>
       </ReduxProvider>
