@@ -1,12 +1,19 @@
+'use client '
+
+import { ArrowLeftCircle } from "lucide-react";
 import LogoIcon from "../Icons/LogoIcon";
+import { useRouter } from "next/navigation";
 
 type Props = {
     title: string;
     body: string;
+    onback: () => void;
 }
-export default function DesktopHeader({ body, title }: Props) {
+export default function DesktopHeader({ body, title, onback }: Props) {
+
     return (
         <>
+            <ArrowLeftCircle className="text-primary cursor-pointer" onClick={onback} />
             <div className="hidden pt-5 pb-10 lg:block">
                 <LogoIcon />
             </div>

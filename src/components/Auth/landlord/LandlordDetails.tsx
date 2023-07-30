@@ -18,6 +18,7 @@ interface LandlordDetailsState {
 
 export default function LandlordDetails() {
     const dispatch = useAppDispatch();
+    const formType = useAppSelector((state) => state.auth.value.formType);
     const [formData, setFormData] = useState<LandlordDetailsState>({
         landlordType: '',
         experienceLevel: '',
@@ -40,6 +41,10 @@ export default function LandlordDetails() {
         e.preventDefault();
     };
 
+    const setFormType = () => {
+        handleFormChange('userType')
+    }
+
 
 
 
@@ -52,7 +57,7 @@ export default function LandlordDetails() {
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Register as Landlord" body="Let us personalize your experience" />
+            <DesktopHeader title="Register as Landlord" body="Let us personalize your experience" onback={setFormType} />
             <form action="#" className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                     <InputRadio

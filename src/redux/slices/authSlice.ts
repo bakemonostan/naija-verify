@@ -2,7 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { type } from "os";
 import { RootState } from "../store";
 
-export type Forms = "register" | "landlord details" | "login" | null;
+export type Forms =
+  | "register"
+  | "landlord details"
+  | "login"
+  | "userType"
+  | null;
 
 type AuthState = {
   isLoggedIn?: boolean;

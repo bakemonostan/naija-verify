@@ -11,6 +11,7 @@ import LogoIcon from "@/components/Icons/LogoIcon"
 import { nigeriaStates } from "@/helpers"
 import { useAppDispatch, useAppSelector } from "@/redux/store"
 import { Forms, chooseFormType } from "@/redux/slices/authSlice"
+import DesktopHeader from "../DesktopHeader"
 
 const RegistrationSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters").nonempty("First name is required"),
@@ -55,19 +56,16 @@ export default function CreateAccount() {
     function onSubmit(values: z.infer<typeof RegistrationSchema>) {
         handleFormChange('login')
         reset()
+    }
 
+    function goBack() {
+        handleFormChange('landlord details')
     }
 
 
     return (
         <section className="space-y-5 lg:w-3/5">
-            <div className="pt-5 pb-10">
-                <LogoIcon />
-            </div>
-            <div className="pb-2 space-y-2">
-                <h2 className="font-semibold lg:text-2xl">Register as Landlord</h2>
-                <p className="text-sm text-secondary-10">This information will be used to create your account</p>
-            </div>
+            <DesktopHeader title="Register as Landlord" body="This information will be used to create your account" onback={goBack} />
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <Label htmlFor="First name">
                     <span className='pb-3'>First Name</span>
@@ -173,7 +171,13 @@ export default function CreateAccount() {
                         placeholder="Terms and Conditions"
                         {...register("termsAndConditions")}
                     />
-                    <span className="flex text-sm text-secondary-10">I agree to abide by the terms and conditions<Link href="/terms-and-conditions"><span className="cursor-pointer text-primary">Terms and Conditions</span></Link></span>
+                    <span className="flex text-sm text-secondary-10">I agree to abide by the terms and conditions
+                        <Link href="/terms-and-conditions">
+                            <span className="cursor-pointer text-primary">
+                                Terms and Conditions
+                            </span>
+                        </Link>
+                    </span>
                 </Label>
                 <Button type="submit">Submit</Button>
             </form>

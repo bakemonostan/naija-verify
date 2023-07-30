@@ -44,7 +44,7 @@ export default function ForgotPassword() {
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Forgot Password" body="Enter your email address to reset your password" />
+            <DesktopHeader title="Forgot Password" body="Enter your email address to reset your password" onback={() => { }} />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <FormField
