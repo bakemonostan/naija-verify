@@ -1,4 +1,4 @@
-import SelectUser from "@/components/Auth/SelectUser";
+import SelectUser from "@/components/Auth/landlord/SelectUser";
 
 export default function page() {
     return (

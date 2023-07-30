@@ -1,4 +1,4 @@
-import ForgotPassword from "@/components/Auth/ForgotPassword";
+import ForgotPassword from "@/components/Auth/landlord/ForgotPassword";
 
 export default function page() {
     return (

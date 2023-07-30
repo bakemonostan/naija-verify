@@ -4,10 +4,10 @@ import SelectUserType from "./SelectUserType";
 // Import Redux-related functions
 import { useAppSelector, useAppDispatch } from "@/redux/store";
 import { selectUser } from "@/redux/slices/authSlice";
-import { Button } from "../ui/button";
-import HouseIcon from "../Icons/HouseIcon";
-import KeyIcon from "../Icons/keyIcon";
-import LogoIcon from "../Icons/LogoIcon";
+import { Button } from "../../ui/button";
+import HouseIcon from "../../Icons/HouseIcon";
+import KeyIcon from "../../Icons/keyIcon";
+import LogoIcon from "../../Icons/LogoIcon";
 import { useRouter } from 'next/navigation'
 
 export default function SelectUser() {
