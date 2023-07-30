@@ -27,11 +27,11 @@ const formSchema = z.object({
         .string()
         .min(8, { message: "Password must be at least 8 characters long." })
         .max(100, { message: "Password must be at most 25 characters long." })
-        .refine((value) => value === formSchema.shape.password, {
-            message: "Passwords do not match.",
-            path: ["confirmPassword"],
-        }),
-})
+
+}).refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"], // path of error
+});
 
 
 
@@ -46,12 +46,17 @@ export default function ResetPassword() {
 
     const { handleSubmit, reset } = form
 
+    const onsubmit = (data: z.infer<typeof formSchema>) => {
+        reset()
+        console.log(data)
+    }
+
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
             <DesktopHeader title="Reset Password" body="Set a new password" />
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(() => { })} className="space-y-8">
+                <form onSubmit={handleSubmit(onsubmit)} className="space-y-8">
                     <FormField
                         control={form.control}
                         name="password"
@@ -59,7 +64,7 @@ export default function ResetPassword() {
                             <FormItem className="relative">
                                 <FormLabel >Password</FormLabel>
                                 <FormControl>
-                                    <Input className="" placeholder="Enter your password" {...field} />
+                                    <Input className="" type='password' placeholder="Enter your password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -72,7 +77,7 @@ export default function ResetPassword() {
                             <FormItem className="relative">
                                 <FormLabel >Confirm Password</FormLabel>
                                 <FormControl>
-                                    <Input className="" placeholder="Confirm your password" {...field} />
+                                    <Input className="" type='password' placeholder="Confirm your password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
