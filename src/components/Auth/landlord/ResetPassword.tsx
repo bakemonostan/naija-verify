@@ -54,7 +54,7 @@ export default function ResetPassword() {
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Reset Password" body="Set a new password" />
+            <DesktopHeader title="Reset Password" body="Set a new password" onback={() => { }} />
             <Form {...form}>
                 <form onSubmit={handleSubmit(onsubmit)} className="space-y-8">
                     <FormField
