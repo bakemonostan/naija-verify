@@ -10,11 +10,9 @@ import { Input } from '@/components/ui/input'
 export default function Home() {
   return (
     <div>
-      <h1 className='underline text-primary'>staging</h1>
-      <TempRedirect />
+      {/* <TempRedirect /> */}
       <div className='flex flex-row'>
         <SideBar />
-        <h1 className='underline text-primary'>staging</h1>s
       </div>
     </div>
   )
