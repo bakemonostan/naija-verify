@@ -55,12 +55,12 @@ export default function Login() {
                     />
                 </Label>
                 <div className='pt-5'>
-                    <span className=" text-primary text-sm text-right pb-2 mr-auto w-full block">Forgot Password?</span>
+                    <span className="block w-full pb-2 mr-auto text-sm text-right  text-primary">Forgot Password?</span>
                     <Button type="submit">Submit</Button>
                 </div>
-                <span className="block py-4 text-center mx-auto  w-full text-sm text-secondary-10">
+                <span className="block w-full py-4 mx-auto text-sm text-center text-secondary-10">
                     Dont have an account?
-                    <Link href='#' className="text-primary font-semibold"> Sign Up</Link>
+                    <Link href='#' className="font-semibold text-primary"> Sign Up</Link>
                 </span>
             </form>
         </section>

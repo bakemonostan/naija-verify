@@ -143,3 +143,26 @@ export const nigeriaStates = [
   "Zamfara",
   "Federal Capital Territory (FCT)",
 ];
+
+export const selectValues = [
+  {
+    value: "Google",
+    key: "google",
+  },
+  {
+    value: "Facebook",
+    key: "facebook",
+  },
+  {
+    value: "Instagram",
+    key: "instagram",
+  },
+  {
+    value: "Twitter",
+    key: "twitter",
+  },
+  {
+    value: "LinkedIn",
+    key: "linkedin",
+  },
+];

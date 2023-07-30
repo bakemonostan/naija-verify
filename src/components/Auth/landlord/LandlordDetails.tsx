@@ -1,12 +1,15 @@
 'use client'
 
-import { landlordTypes, ExperienceLevel } from "@/helpers"
+import { landlordTypes, ExperienceLevel, selectValues } from "@/helpers"
 import InputRadio from "../InputRadio"
 import { useState } from "react";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import LogoIcon from "@/components/Icons/LogoIcon";
 import InputNumber from "@/components/ui/inputNumber";
 import { Button } from "@/components/ui/button";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { Forms, chooseFormType } from "@/redux/slices/authSlice";
+import DesktopHeader from "../DesktopHeader";
 
 interface LandlordDetailsState {
     landlordType: string;
@@ -14,9 +17,11 @@ interface LandlordDetailsState {
 }
 
 export default function LandlordDetails() {
+    const dispatch = useAppDispatch();
     const [formData, setFormData] = useState<LandlordDetailsState>({
         landlordType: '',
         experienceLevel: '',
+
     });
 
     const [count, setCount] = useState<number>(0);
@@ -25,55 +30,36 @@ export default function LandlordDetails() {
         setCount(newValue);
     };
 
+    const handleFormChange = (selectedOption: Forms) => {
+        dispatch(chooseFormType({
+            formType: selectedOption,
+        }));
+    };
 
-    const selectValue = [
-        {
-            value: 'Google',
-            key: 'google'
-        },
-        {
-            value: 'Facebook',
-            key: 'facebook'
-        },
-        {
-            value: 'Instagram',
-            key: 'instagram'
-        },
-        {
-            value: 'Twitter',
-            key: 'twitter'
-        },
-        {
-            value: 'LinkedIn',
-            key: 'linkedin'
-        },
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
 
-    ]
+
+
 
     const handleInputChange = (name: string, value: string) => {
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
-        console.log("Form Data:", formData);
     };
 
     return (
-        <section className="space-y-5 lg:w-3/5 lg:h-screen">
-            <div className="pt-5 pb-10">
-                <LogoIcon />
-            </div>
-            <div className="pb-2 space-y-2">
-                <h2 className="font-semibold lg:text-2xl">Register as Landlord</h2>
-                <p className="text-sm text-secondary-10">Let us personalize your experience</p>
-            </div>
-            <form action="#" className="space-y-5">
+        <section className="h-screen space-y-5 lg:w-3/5">
+            <DesktopHeader title="Register as Landlord" body="Let us personalize your experience" />
+            <form action="#" className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                     <InputRadio
-                        options={landlordTypes}
+                        options={landlordTypes ?? []}
                         title="Which best describes you? "
                         description="landlord type"
-                        selectedValue={formData.landlordType}
+                        selectedValue={formData.landlordType ?? ''}
                         onChange={(value) => handleInputChange('landlordType', value)}
                     />
                 </div>
@@ -106,7 +92,7 @@ export default function LandlordDetails() {
                         <SelectContent>
                             <SelectGroup>
                                 {
-                                    selectValue.map((value) => (
+                                    selectValues.map((value) => (
                                         <SelectItem key={value.key} value={value.value}>
                                             <SelectLabel>{value.value}</SelectLabel>
                                         </SelectItem>
@@ -119,10 +105,12 @@ export default function LandlordDetails() {
 
                 <Button
                     className="rounded-md"
+                    onClick={() => handleFormChange('register')}
                 >
                     Proceed
                 </Button>
             </form>
+
         </section>
     )
 }

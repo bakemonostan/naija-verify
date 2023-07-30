@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label"
 import { Mail, MapPin, Phone, Pin } from "lucide-react"
 import LogoIcon from "@/components/Icons/LogoIcon"
 import { nigeriaStates } from "@/helpers"
+import { useAppDispatch, useAppSelector } from "@/redux/store"
+import { Forms, chooseFormType } from "@/redux/slices/authSlice"
 
 const RegistrationSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters").nonempty("First name is required"),
@@ -24,6 +26,8 @@ const RegistrationSchema = z.object({
 });
 
 export default function CreateAccount() {
+    const formType = useAppSelector((state) => state.auth.value.formType);
+    const dispatch = useAppDispatch();
     const form = useForm<z.infer<typeof RegistrationSchema>>({
         resolver: zodResolver(RegistrationSchema),
         defaultValues: {
@@ -42,9 +46,16 @@ export default function CreateAccount() {
 
     const { register, handleSubmit, control, reset, clearErrors, formState: { errors } } = form;
 
+    const handleFormChange = (selectedOption: Forms) => {
+        dispatch(chooseFormType({
+            formType: selectedOption,
+        }));
+    };
+
     function onSubmit(values: z.infer<typeof RegistrationSchema>) {
+        handleFormChange('login')
         reset()
-        console.log(values)
+
     }
 
 
@@ -173,40 +184,3 @@ export default function CreateAccount() {
 }
 
 
-
-/* <FormField
-    control={form.control}
-    name="firstName"
-    render={({ field }) => (
-        <FormItem>
-            <FormLabel>Username</FormLabel>
-            <FormControl>
-                <Input placeholder="shadcn" {...field} />
-            </FormControl>
-            <FormDescription>
-                This is your public display name.
-            </FormDescription>
-            <FormMessage />
-        </FormItem>
-    )}
-/> */
-
-
-// {
-//     RegistrationInputFields.map((values) => (
-//         <FormField
-//             key={values.name}
-//             control={form.control}
-//             name={values.name as keyof IRegistrationFields}
-//             render={({ field }) => (
-//                 <FormItem>
-//                     <FormLabel>{values.label}</FormLabel>
-//                     <FormControl>
-//                         <Input placeholder={values.placeholder} {...field} />
-//                     </FormControl>
-//                     <FormMessage />
-//                 </FormItem>
-//             )}
-//         />
-//     ))
-// }
