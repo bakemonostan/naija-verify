@@ -9,7 +9,7 @@ import { ReduxProvider } from '@/redux/provider'
 
 export default function TempRedirect() {
     const isLogged = useAppSelector((state) => state.auth.value.isLoggedIn);
-    if (!isLogged) redirect('/auth/register')
+    if (!isLogged) redirect('/auth/login')
     return (
         <Provider store={store}>
             <div className={`
