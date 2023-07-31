@@ -1,16 +1,25 @@
 'use client'
-import Link from "next/link"
+import { useRouter } from 'next/navigation'
 import { useForm } from "react-hook-form"
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Mail, MapPin, Phone, Pin } from "lucide-react"
-import LogoIcon from "@/components/Icons/LogoIcon"
-import { nigeriaStates } from "@/helpers"
+import { Mail, MapPin, Phone } from "lucide-react"
+import { RegistrationInputFields, nigeriaStates, PasswordFields } from "@/helpers"
 import { useAppDispatch, useAppSelector } from "@/redux/store"
-import { Forms, chooseFormType } from "@/redux/slices/authSlice"
+import { Forms, chooseFormType, setModal } from "@/redux/slices/authSlice"
+import DesktopHeader from "../DesktopHeader"
+import Modal from "./Modal"
 
 const RegistrationSchema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters").nonempty("First name is required"),
@@ -23,10 +32,13 @@ const RegistrationSchema = z.object({
     password: z.string().nonempty("Password is required"),
     confirmPassword: z.string().nonempty("Confirm password is required"),
     termsAndConditions: z.boolean(),
+}).refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
 });
 
 export default function CreateAccount() {
-    const formType = useAppSelector((state) => state.auth.value.formType);
+    const modal = useAppSelector((state) => state.auth.value.modalStates);
     const dispatch = useAppDispatch();
     const form = useForm<z.infer<typeof RegistrationSchema>>({
         resolver: zodResolver(RegistrationSchema),
@@ -43,8 +55,7 @@ export default function CreateAccount() {
             termsAndConditions: false,
         },
     })
-
-    const { register, handleSubmit, control, reset, clearErrors, formState: { errors } } = form;
+    const { register, handleSubmit, reset, formState: { errors } } = form;
 
     const handleFormChange = (selectedOption: Forms) => {
         dispatch(chooseFormType({
@@ -52,132 +63,122 @@ export default function CreateAccount() {
         }));
     };
 
-    function onSubmit(values: z.infer<typeof RegistrationSchema>) {
-        handleFormChange('login')
-        reset()
+    const showModal = () => {
+        dispatch(setModal({
+            modalStates: 'verify'
+        }))
+        setTimeout(() => {
+            dispatch(setModal({
+                modalStates: 'created'
+            }))
+        }, 3000);
 
     }
 
+    function onSubmit(values: z.infer<typeof RegistrationSchema>) {
+        showModal()
+        reset()
+    }
+
+    function goBack(arg: 'go back' | 'login') {
+        if (arg === 'go back') {
+            handleFormChange('landlord details')
+        }
+        if (arg === 'login') {
+            dispatch(setModal({
+                modalStates: null
+            })
+            )
+            handleFormChange('login')
+        }
+    }
 
     return (
         <section className="space-y-5 lg:w-3/5">
-            <div className="pt-5 pb-10">
-                <LogoIcon />
-            </div>
-            <div className="pb-2 space-y-2">
-                <h2 className="font-semibold lg:text-2xl">Register as Landlord</h2>
-                <p className="text-sm text-secondary-10">This information will be used to create your account</p>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-                <Label htmlFor="First name">
-                    <span className='pb-3'>First Name</span>
-                    <Input
-                        title="First Name"
-                        placeholder="Enter first Name"
-                        {...register("firstName")}
-                    />
-                </Label>
-                <Label htmlFor="Last name">
-                    <span className='pb-3'>Last Name</span>
-                    <Input
-                        title="Last Name"
-                        placeholder="Enter last name"
-                        {...register("lastName")}
-                    />
-                </Label>
+            {
+                modal === 'verify' ? <Modal variant='verify' title='Verify your email' description='We have sent a link to your mail. Please proceed to verify email' onClick={() => { }} /> : modal === 'created' ? <Modal variant='created' title='Account created' description='Your account has been created successfully' onClick={
+                    () => { goBack('login') }
+                } /> : null
+            }
+            <DesktopHeader title="Register as Landlord" body="This information will be used to create your account" onback={() => { goBack('go back') }} />
+            <Form {...form}>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                    {
+                        RegistrationInputFields.map((item, index) => {
+                            return (
+                                <FormField
+                                    key={item.label}
+                                    control={form.control}
+                                    name={item.name}
+                                    render={({ field }) => (
+                                        <FormItem className='relative'>
+                                            <FormLabel >{item.label}</FormLabel>
+                                            {
+                                                item.name === 'email' ? <Mail className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 top-[2.1rem]" /> : item.name === 'address1' ? <MapPin className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2  top-[2.1rem]" /> : null
+                                            }
+                                            <FormControl>
+                                                <Input
+                                                    className={`${item.name === 'email' ? 'pl-8' : item.name === 'address1' ? 'pl-8' : ''}`}
+                                                    placeholder={item.placeholder} {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            )
+                        })}
+                    <div className='justify-between gap-6 lg:flex'>
+                        <Label htmlFor="State" className="flex flex-col flex-1 ">
+                            <span className='pb-2'>State</span>
+                            <select required id="State" name='State' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  w-full p-2.5">
+                                {
+                                    nigeriaStates.map((state) => {
+                                        return (
+                                            <option key={state} value={state}>{state}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </Label>
 
-                <Label htmlFor="Email" className="relative">
-                    <span className='pb-3'>Email</span>
-                    <Mail className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 mt-[1.1rem]" />
-                    <Input
-                        title="Email"
-                        placeholder="Enter email"
-                        {...register("email")}
-                        className="pl-8"
-                    />
-                </Label>
+                        <Label htmlFor="Phone number" className="flex-1">
+                            <span className='pb-3'>Phone Number</span>
+                            <Phone className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 mt-[1.1rem]" />
+                            <Input
+                                title="Phone Number"
+                                placeholder="Enter phone Number"
+                                {...register("phoneNumber")}
+                                className="pl-8"
+                            />
 
-                <Label htmlFor="Address" className="relative">
-                    <span className='pb-3'>Address</span>
-                    <MapPin className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 mt-[1.1rem]" />
-                    <Input
-                        title="Address 1"
-                        placeholder="Enter address 1"
-                        {...register("address1")}
-                        className="pl-8"
-                    />
-                </Label>
+                            {errors.phoneNumber && <span className="text-sm text-semibold mt-1.5 text-red-400">{errors.phoneNumber.message}</span>}
+                        </Label>
+                    </div>
 
-                <Label htmlFor="Address 2" className="relative">
-                    <span className='pb-3'>Address 2</span>
-                    <MapPin className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 mt-[1.1rem]" />
-                    <Input
-                        title="Address 2"
-                        placeholder="Enter address 1"
-                        {...register("address2")}
-                        className="pl-8"
-                    />
-
-                </Label>
-
-                <div className='justify-between gap-6 lg:flex'>
-                    <Label htmlFor="State" className="flex flex-col flex-1 ">
-                        <span className='pb-2'>State</span>
-                        <select id="State" name='State' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  w-full p-2.5">
-                            {
-                                nigeriaStates.map((state) => {
-                                    return (
-                                        <option key={state} value={state}>{state}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </Label>
-
-                    <Label htmlFor="Phone number" className="flex-1">
-                        <span className='pb-3'>Phone Number</span>
-                        <Phone className="absolute text-secondary-10 flex items-center w-6 h-6 pl-2 mt-[1.1rem]" />
-                        <Input
-                            title="Phone Number"
-                            placeholder="Enter phone Number"
-                            {...register("phoneNumber")}
-                            className="pl-8"
-                        />
-
-                    </Label>
-                </div>
-
-                <Label htmlFor="Password">
-                    <span className='pb-3'>Password</span>
-                    <Input
-                        title="Password"
-                        placeholder="Enter Password"
-                        {...register("password")}
-                    />
-                </Label>
-
-                <Label htmlFor="Confirm Password">
-                    <span className='pb-3'>Confirm Password</span>
-                    <Input
-                        title="Confirm Password"
-                        placeholder="Confirm Password"
-                        {...register("confirmPassword")}
-                    />
-                </Label>
-
-
-                <Label htmlFor="Terms and Conditions" className='flex gap-3'>
-                    <input
-                        type="checkbox"
-                        title="Terms and Conditions"
-                        placeholder="Terms and Conditions"
-                        {...register("termsAndConditions")}
-                    />
-                    <span className="flex text-sm text-secondary-10">I agree to abide by the terms and conditions<Link href="/terms-and-conditions"><span className="cursor-pointer text-primary">Terms and Conditions</span></Link></span>
-                </Label>
-                <Button type="submit">Submit</Button>
-            </form>
-
+                    {
+                        PasswordFields.map((item, index) => {
+                            return (
+                                <FormField
+                                    key={item.label}
+                                    control={form.control}
+                                    name={item.name}
+                                    render={({ field }) => (
+                                        <FormItem >
+                                            <FormLabel>{item.label}</FormLabel>
+                                            <FormControl>
+                                                <Input type='password' placeholder={item.placeholder} {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            )
+                        }
+                        )
+                    }
+                    <Button type="submit">Submit</Button>
+                </form>
+            </Form>
         </section >
     )
 

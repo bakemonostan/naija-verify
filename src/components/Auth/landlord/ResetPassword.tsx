@@ -5,14 +5,13 @@ import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import DesktopHeader from "./DesktopHeader"
+import DesktopHeader from "../DesktopHeader"
 import Link from "next/link"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
@@ -54,7 +53,7 @@ export default function ResetPassword() {
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Reset Password" body="Set a new password" />
+            <DesktopHeader title="Reset Password" body="Set a new password" onback={() => { }} />
             <Form {...form}>
                 <form onSubmit={handleSubmit(onsubmit)} className="space-y-8">
                     <FormField

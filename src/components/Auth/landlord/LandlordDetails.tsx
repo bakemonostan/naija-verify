@@ -4,7 +4,6 @@ import { landlordTypes, ExperienceLevel, selectValues } from "@/helpers"
 import InputRadio from "../InputRadio"
 import { useState } from "react";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
-import LogoIcon from "@/components/Icons/LogoIcon";
 import InputNumber from "@/components/ui/inputNumber";
 import { Button } from "@/components/ui/button";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
@@ -18,6 +17,7 @@ interface LandlordDetailsState {
 
 export default function LandlordDetails() {
     const dispatch = useAppDispatch();
+    const formType = useAppSelector((state) => state.auth.value.formType);
     const [formData, setFormData] = useState<LandlordDetailsState>({
         landlordType: '',
         experienceLevel: '',
@@ -37,8 +37,13 @@ export default function LandlordDetails() {
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        handleFormChange('register')
         e.preventDefault();
     };
+
+    const setFormType = () => {
+        handleFormChange('userType')
+    }
 
 
 
@@ -51,8 +56,8 @@ export default function LandlordDetails() {
     };
 
     return (
-        <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Register as Landlord" body="Let us personalize your experience" />
+        <section className="h-full space-y-5 lg:w-3/5">
+            <DesktopHeader title="Register as Landlord" body="Let us personalize your experience" onback={setFormType} />
             <form action="#" className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                     <InputRadio
@@ -84,7 +89,7 @@ export default function LandlordDetails() {
 
 
                 <div className=''>
-                    <Select>
+                    <Select required>
                         <h4 className="pb-2 font-medium">How did you hear about NaijaVerify? <span className="text-xs text-secondary">(Optional)</span></h4>
                         <SelectTrigger className="w-full ">
                             <SelectValue placeholder="Select" />
@@ -93,7 +98,9 @@ export default function LandlordDetails() {
                             <SelectGroup>
                                 {
                                     selectValues.map((value) => (
-                                        <SelectItem key={value.key} value={value.value}>
+                                        <SelectItem key={value.key} value={value.value}
+                                            aria-required="true"
+                                        >
                                             <SelectLabel>{value.value}</SelectLabel>
                                         </SelectItem>
                                     ))
@@ -104,9 +111,7 @@ export default function LandlordDetails() {
                 </div>
 
                 <Button
-                    className="rounded-md"
-                    onClick={() => handleFormChange('register')}
-                >
+                    className="rounded-md"                >
                     Proceed
                 </Button>
             </form>

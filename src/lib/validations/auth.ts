@@ -11,7 +11,7 @@ import * as z from "zod";
 //   phoneNumber: z.string().nonempty("Phone number is required"),
 //   password: z.string().nonempty("Password is required"),
 //   confirmPassword: z.string().nonempty("Confirm password is required"),
-//   termsAndConditions: z.boolean(),
+//   termsAndConditions: z.boolean().nonempty('Please agree'),
 // });
 
 export type IRegistrationFields = {

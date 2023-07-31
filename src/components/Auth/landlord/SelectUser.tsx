@@ -3,11 +3,11 @@ import SelectUserType from "./SelectUserType";
 
 // Import Redux-related functions
 import { useAppSelector, useAppDispatch } from "@/redux/store";
-import { selectUser } from "@/redux/slices/authSlice";
-import { Button } from "../ui/button";
-import HouseIcon from "../Icons/HouseIcon";
-import KeyIcon from "../Icons/keyIcon";
-import LogoIcon from "../Icons/LogoIcon";
+import { chooseFormType, selectUser } from "@/redux/slices/authSlice";
+import { Button } from "../../ui/button";
+import HouseIcon from "../../Icons/HouseIcon";
+import KeyIcon from "../../Icons/keyIcon";
+import LogoIcon from "../../Icons/LogoIcon";
 import { useRouter } from 'next/navigation'
 
 export default function SelectUser() {
@@ -20,6 +20,13 @@ export default function SelectUser() {
             selectedUser: selectedOption,
         }));
     };
+
+    const handleFormChange = () => {
+        router.push(`/auth/register/${userType}`)
+        dispatch(chooseFormType({
+            formType: 'landlord details',
+        }));
+    }
 
     return (
         <div className="w-full h-screen mr-2 space-y-6  lg:pt-6 lg:max-w-[28rem]">
@@ -55,7 +62,7 @@ export default function SelectUser() {
             <div className="w-full">
                 <div className="w-full">
                     <Button
-                        onClick={() => router.push(`/auth/register/${userType}`)}
+                        onClick={handleFormChange}
                         disabled={!userType}
                     >
                         Proceed

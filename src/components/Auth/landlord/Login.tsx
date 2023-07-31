@@ -8,9 +8,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link";
+import DesktopHeader from "../DesktopHeader";
+import { Forms, chooseFormType, login, } from "@/redux/slices/authSlice";
+import { useAppDispatch } from "@/redux/store";
+import { useRouter } from "next/navigation";
 
 const LoginInSchema = z.object({
-    email: z.string().email("Invalid email address").nonempty("Email is required"),
+    email: z.string().email('Please enter a valid email').nonempty("Email is required"),
     password: z.string().nonempty("Password is required"),
 });
 
@@ -22,45 +26,65 @@ export default function Login() {
             password: "",
         },
     })
+    const router = useRouter();
+
+    const dispatch = useAppDispatch();
+    const handleFormChange = (selectedOption: Forms) => {
+        dispatch(chooseFormType({
+            formType: selectedOption,
+        }));
+    };
+
+    function goBack() {
+        handleFormChange('register')
+    }
 
     const { register, handleSubmit, control, reset, clearErrors, formState: { errors } } = form;
+
+    function onSubmit(values: z.infer<typeof LoginInSchema>) {
+        dispatch(login())
+        router.push('/')
+        reset()
+    }
 
 
     return (
         <section className="space-y-5 lg:w-3/5 lg:h-screen">
-            <div className="pt-5 pb-10">
-                <LogoIcon />
-            </div>
-            <div className="pb-2 space-y-2">
-                <h2 className="font-semibold lg:text-2xl">Login to your account</h2>
-                <p className="text-sm text-secondary-10">Welcome back!</p>
-            </div>
+            <DesktopHeader title="Login to your account" body="Welcome back" onback={goBack} />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
 
-            <form action="">
-                <Label htmlFor="Email">
-                    <span className='pb-3'>First Name</span>
-                    <Input
-                        title="Email"
-                        placeholder="Enter Email"
-                        {...register("email")}
-                    />
-                </Label>
-                <Label htmlFor="Password">
-                    <span className='pb-3'>Password</span>
-                    <Input
-                        title="Password"
-                        type="password"
-                        placeholder="Enter last name"
-                        {...register("password")}
-                    />
-                </Label>
+                    <Label htmlFor="Email">
+                        <span className='pb-3'>Enter your email address</span>
+                        <Input
+                            title="Email"
+                            placeholder="Enter Email"
+                            {...register("email")}
+                        />
+                        {errors.email && <span className="text-sm text-red-500">{errors.email.message}</span>}
+                    </Label>
+                </div>
+
+                <div>
+
+                    <Label htmlFor="Password">
+                        <span className='pb-3'>Password</span>
+                        <Input
+                            title="Password"
+                            type="password"
+                            placeholder="Enter your pasword"
+                            {...register("password")}
+                        />
+                    </Label>
+                    {errors.password && <span className="text-sm text-red-500">{errors.password.message}</span>}
+                </div>
                 <div className='pt-5'>
-                    <span className="block w-full pb-2 mr-auto text-sm text-right  text-primary">Forgot Password?</span>
+                    <Link href='/auth/forgot-password' className="block w-full pb-2 mr-auto text-sm text-right  text-primary">Forgot Password?</Link>
                     <Button type="submit">Submit</Button>
                 </div>
                 <span className="block w-full py-4 mx-auto text-sm text-center text-secondary-10">
                     Dont have an account?
-                    <Link href='#' className="font-semibold text-primary"> Sign Up</Link>
+                    <Link href='/auth/register' className="font-semibold text-primary"> Sign Up</Link>
                 </span>
             </form>
         </section>

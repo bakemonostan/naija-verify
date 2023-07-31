@@ -2,11 +2,17 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { type } from "os";
 import { RootState } from "../store";
 
-export type Forms = "register" | "landlord details" | "login" | null;
+export type Forms =
+  | "register"
+  | "landlord details"
+  | "login"
+  | "userType"
+  | null;
 
 type AuthState = {
   isLoggedIn?: boolean;
   selectedUser?: "landlord" | "renter";
+  modalStates?: "verify" | "created" | null;
   formType?: Forms;
 };
 
@@ -16,7 +22,7 @@ type InitialState = {
 
 const initialState = {
   value: {
-    isLoggedIn: true,
+    isLoggedIn: false,
     selectedUser: null,
   } as AuthState,
 } as InitialState;
@@ -38,9 +44,14 @@ export const auth = createSlice({
     chooseFormType: (state, action: PayloadAction<AuthState>) => {
       state.value.formType = action.payload.formType;
     },
+
+    setModal: (state, action: PayloadAction<AuthState>) => {
+      state.value.modalStates = action.payload.modalStates;
+    },
   },
 });
 
-export const { login, logout, selectUser, chooseFormType } = auth.actions;
+export const { login, logout, selectUser, chooseFormType, setModal } =
+  auth.actions;
 export const selectAuth = (state: RootState) => state.auth.value;
 export default auth.reducer;

@@ -60,50 +60,6 @@ export const ExperienceLevel: ILandlord[] = [
   },
 ];
 
-export const RegistrationInputFields = [
-  {
-    name: "firstName",
-    label: "First Name",
-    placeholder: "First Name",
-  },
-  {
-    name: "lastName",
-    label: "Last Name",
-    placeholder: "Last Name",
-  },
-  {
-    name: "email",
-    label: "Email",
-    placeholder: "Email",
-  },
-  {
-    name: "address1",
-    label: "Address 1",
-    placeholder: "Address 1",
-  },
-  {
-    name: "address2",
-    label: "Address 2",
-    placeholder: "Address 2",
-  },
-
-  {
-    name: "phoneNumber",
-    label: "Phone Number",
-    placeholder: "Phone Number",
-  },
-  {
-    name: "password",
-    label: "Password",
-    placeholder: "Password",
-  },
-  {
-    name: "confirmPassword",
-    label: "Confirm Password",
-    placeholder: "Confirm Password",
-  },
-];
-
 export const nigeriaStates = [
   "Abia",
   "Adamawa",
@@ -164,5 +120,68 @@ export const selectValues = [
   {
     value: "LinkedIn",
     key: "linkedin",
+  },
+];
+
+// firstName: "",
+//           lastName: "",
+//           email: "",
+//           address1: "",
+//           address2: "",
+//           state: [],
+//           phoneNumber: "",
+//           password: "",
+//           confirmPassword: "",
+//           termsAndConditions: false,
+
+type IFieldName = "firstName" | "lastName" | "email" | "address1" | "address2";
+
+interface IRegistrationForm {
+  name: IFieldName | PasswordFieldName;
+  label: string;
+  placeholder: string;
+}
+
+export const RegistrationInputFields: IRegistrationForm[] = [
+  {
+    name: "firstName",
+    label: "First Name",
+    placeholder: "Enter first name",
+  },
+  {
+    name: "lastName",
+    label: "Last Name",
+    placeholder: "Enter last name",
+  },
+  {
+    name: "email",
+    label: "Email",
+    placeholder: "Enter email",
+  },
+  {
+    name: "address1",
+    label: "Address 1",
+    placeholder: "Enter address 1",
+  },
+  {
+    name: "address2",
+    label: "Address 2",
+    placeholder: "Enter Address 2",
+  },
+];
+
+type PasswordFieldName = "password" | "confirmPassword";
+
+export const PasswordFields: IRegistrationForm[] = [
+  {
+    name: "password",
+    label: "Password",
+    placeholder: "Password",
+  },
+
+  {
+    name: "confirmPassword",
+    label: "Confirm Password",
+    placeholder: "Confirm Password",
   },
 ];

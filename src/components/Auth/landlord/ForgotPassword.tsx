@@ -12,7 +12,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import DesktopHeader from "./DesktopHeader"
+import DesktopHeader from "../DesktopHeader"
 import Link from "next/link"
 import * as z from "zod"
 import { useForm } from "react-hook-form"
@@ -44,7 +44,7 @@ export default function ForgotPassword() {
 
     return (
         <section className="h-screen space-y-5 lg:w-3/5">
-            <DesktopHeader title="Forgot Password" body="Enter your email address to reset your password" />
+            <DesktopHeader title="Forgot Password" body="Enter your email address to reset your password" onback={() => { }} />
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                     <FormField

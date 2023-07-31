@@ -10,13 +10,14 @@ type Props = {
     variant: 'verify' | 'created'
     title: string
     description: string
+    onClick: () => void
 }
 
-export default function Modal({ children, title, variant, description }: Props) {
+export default function Modal({ children, title, variant, description, onClick }: Props) {
     const [type, setType] = useState<'verify' | 'created'>()
 
     return (
-        <div className="fixed bg-white border w-full h-full left-0 top-0 p-8">
+        <div className="fixed bg-white border w-full z-10 h-full left-0 top-0 p-8">
             <LogoIcon />
             <div className=" h-full flex flex-col pt-20">
                 <div className="mx-auto w-full lg:w-1/4">
@@ -34,7 +35,7 @@ export default function Modal({ children, title, variant, description }: Props) 
                 </div>
                 <div className="w-[26rem] mx-auto pt-5">
                     {
-                        variant === 'created' ? <Button>
+                        variant === 'created' ? <Button onClick={onClick}>
                             Proceed to login
                         </Button> : ''
                     }

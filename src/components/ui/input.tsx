@@ -28,7 +28,6 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
   VariantProps<typeof inputVariants> {
   asChild?: boolean
-  value?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -40,6 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={cn(inputVariants({ variant, className }))}
         ref={ref}
         {...props}
+
       />
     )
   }
