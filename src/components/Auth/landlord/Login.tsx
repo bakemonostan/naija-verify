@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link";
 import DesktopHeader from "../DesktopHeader";
-import { Forms, chooseFormType } from "@/redux/slices/authSlice";
+import { Forms, chooseFormType, login, } from "@/redux/slices/authSlice";
 import { useAppDispatch } from "@/redux/store";
 import { useRouter } from "next/navigation";
 
@@ -42,6 +42,7 @@ export default function Login() {
     const { register, handleSubmit, control, reset, clearErrors, formState: { errors } } = form;
 
     function onSubmit(values: z.infer<typeof LoginInSchema>) {
+        dispatch(login())
         router.push('/')
         reset()
     }

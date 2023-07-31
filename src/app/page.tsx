@@ -5,7 +5,7 @@ import SideBar from '@/components/SideBar'
 export default function Home() {
   return (
     <div>
-      {/* <TempRedirect /> */}
+      <TempRedirect />
       <div className='flex flex-row'>
         <SideBar />
       </div>
