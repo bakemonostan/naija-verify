@@ -43,7 +43,7 @@ export default function Login() {
 
     function onSubmit(values: z.infer<typeof LoginInSchema>) {
         dispatch(login())
-        router.push('/')
+        router.push('/dashboard')
         reset()
     }
 
