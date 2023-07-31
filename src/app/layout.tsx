@@ -33,18 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <ReduxProvider>
         <body className={`${rubik_c.variable}`}>
-          <div className='flex flex-col'>
-            <TopBar />
-            <div className='flex flex-row'>
-
-              <SideBar />
-              {children}
-            </div>
-          </div>
-
-
-
-
+          {children}
         </body>
       </ReduxProvider>
 
