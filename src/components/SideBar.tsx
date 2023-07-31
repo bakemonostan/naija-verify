@@ -10,7 +10,7 @@ import LogoIcon from './Icons/LogoIcon'
 
 export default function SideBar() {
   return (
-    <div className="bg-[#1E1E1E]  text-white w-auto min-h-screen font-rubik">
+    <div className="bg-[#1E1E1E]  text-white w-auto min-h-screen font-rubik hidden lg:block">
       <div className="flex flex-col px-14 ">
         <div className="flex py-12">
           <LogoIcon variant='dark'/>
