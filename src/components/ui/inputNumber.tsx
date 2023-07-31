@@ -26,6 +26,7 @@ export default function InputNumber({ value, onValueChange }: NumberInputProps) 
                 className="w-8 text-center border border-gray-400 rounded-lg appearance-none"
                 onChange={(e) => handleValueChange(Number(e.target.value))}
                 min={0}
+                required
             />
             <button
                 type="button"

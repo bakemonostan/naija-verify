@@ -12,6 +12,7 @@ export type Forms =
 type AuthState = {
   isLoggedIn?: boolean;
   selectedUser?: "landlord" | "renter";
+  modalStates?: "verify" | "created" |  null;
   formType?: Forms;
 };
 
@@ -43,9 +44,14 @@ export const auth = createSlice({
     chooseFormType: (state, action: PayloadAction<AuthState>) => {
       state.value.formType = action.payload.formType;
     },
+
+    setModal: (state, action: PayloadAction<AuthState>) => {
+      state.value.modalStates = action.payload.modalStates;
+    },
+
   },
 });
 
-export const { login, logout, selectUser, chooseFormType } = auth.actions;
+export const { login, logout, selectUser, chooseFormType, setModal } = auth.actions;
 export const selectAuth = (state: RootState) => state.auth.value;
 export default auth.reducer;

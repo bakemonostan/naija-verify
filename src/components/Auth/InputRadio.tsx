@@ -30,6 +30,7 @@ export default function InputRadio({ options, selectedValue, control, onChange, 
                             checked={selectedValue === option.value}
                             onChange={(e) => onChange(e.target.value)}
                             className="mb-1 cursor-pointer"
+                            required
                         />
 
                         <span className="text-sm text-secondary-10">{option.label}</span>
