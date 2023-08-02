@@ -31,15 +31,20 @@ export default function Header({ }: Props) {
                 <h1 className='text-2xl font-semibold'>Account Settings</h1>
                 <p className="text-sm text-secondary-10">You can change this information anytime</p>
             </div>
-            <div className="flex justify-between w-full max-w-lg pb-2 text-sm border-b-2 lg:gap-16 lg:max-w-5xl lg:justify-normal">
-                {
-                    tabs.map((tab) => (
-                        <div key={tab} className={`decoration-2 cursor-pointer capitalize underline-offset-[0.87rem] ${formType === tab ? 'text-primary font-bold underline ' : 'text-secondary'}`} onClick={() => setForm(tab)}>
-                            {tab}
-                        </div>
-                    ))
-                }
-            </div>
+            <Tabs defaultValue="account" className="flex justify-between w-full max-w-lg pb-2 text-sm lg:gap-16 lg:max-w-5xl lg:justify-normal">
+                <TabsList>
+                    {
+                        tabs.map((tab) => (
+                            <Tabs value={tab} key={tab} className={`decoration-2 cursor-pointer capitalize underline-offset-[0.87rem] ${formType === tab ? 'text-primary font-bold underline ' : 'text-secondary'}`} onClick={() => setForm(tab)}>
+                                {tab}
+                            </Tabs>
+                        ))
+                    }
+                </TabsList>
+
+            </Tabs>
         </div>
+
     )
 }
+
