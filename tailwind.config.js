@@ -49,3 +49,6 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+//  DEFAULT: "#0A66C2",
+//           10: "#d0e0f0",

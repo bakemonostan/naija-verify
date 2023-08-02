@@ -1,5 +1,7 @@
+import UseClient from "@/components/Settings/UseClient"
+
 export default function Settings() {
     return (
-        <div>Settings</div>
+        <UseClient />
     )
 }
