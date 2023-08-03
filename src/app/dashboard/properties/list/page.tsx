@@ -44,7 +44,7 @@ export default function Properties() {
                 <div className="flex flex-row items-center w-full mt-4">
                     <label htmlFor="email" className="relative text-gray-400 focus-within:text-gray-600 block w-full font-rubik">
 
-                        <Search className="pointer-events-none w-4 h-4 absolute top-1/2 transform -translate-y-1/2 left-3" />
+                        <Search className="pointer-events-none w-4 h-4 absolute top-1/2 transform -translate-y-1/2 left-3 mr-4" />
 
                         <input type="email" name="search" id="search" placeholder="         Search" className="form-input w-full py-2 border border-gray-300 rounded-sm outline-1"/>
                     </label>
