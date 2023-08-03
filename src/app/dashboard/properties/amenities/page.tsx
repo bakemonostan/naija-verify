@@ -4,11 +4,11 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 
 
-export default function Details() {
+export default function Amenities() {
     return (
         <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
             <div className='py-6'>
-                <h2 className='text-[26px] font-semibold font-prompt '>Available Utilities</h2>
+                <h2 className='text-[26px] font-semibold font-prompt '>Amenities and Furnishing</h2>
                 <p className='text-gray-400'>You can change this information anytime</p>
             </div>
             <div className='flex flex-col justify-center self-center w-full font-rubik'>
