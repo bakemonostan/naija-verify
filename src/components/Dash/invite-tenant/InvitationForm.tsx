@@ -25,6 +25,8 @@ import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form";
+import { useAppDispatch } from "@/redux/store"
+import { InvitationType, chooseInvitationType } from "@/redux/slices/inviteTenantSlice"
 
 const formSchema = z.object({
     fullname: z.string().min(2, {
@@ -61,9 +63,20 @@ export default function InvitationForm() {
         resolver: zodResolver(formSchema),
     })
 
+    const dispatch = useAppDispatch();
+
+    const setInvitationType = (type: InvitationType) => {
+        dispatch(chooseInvitationType(
+            {
+                invitationType: type
+            }
+        ))
+    }
+
     const { handleSubmit, reset } = form
 
     function onSubmit(values: z.infer<typeof formSchema>) {
+
         reset()
         console.log(values)
     }
