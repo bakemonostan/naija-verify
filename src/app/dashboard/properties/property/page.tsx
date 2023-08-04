@@ -1,4 +1,4 @@
-import { LayoutDashboard, Users2, DoorOpen,CheckCircle2 } from 'lucide-react';
+import { LayoutDashboard, Users2, DoorOpen, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import NoTenantIcon from "@/components/Icons/NoTenantIcon";
@@ -12,9 +12,10 @@ import {
 } from "@/components/ui/tabs"
 
 
+
 export default function property() {
     return (
-        <div className="flex flex-col w-full   mx-8">
+        <div className="flex flex-col w-full mx-8">
             <div className='pt-6 pb-2'>
                 <h2 className='text-[22px] font-semibold '>Adeola Odeku Estate, Lekki</h2>
                 <p className='text-sm text-gray-400'>34, Chirs Festroad, Lagos, CO 10021</p>
@@ -22,10 +23,10 @@ export default function property() {
             <div className='flex flex-col justify-center w-6/12'>
                 <Button className='font-semibold font-rubik text-xs bg-white border border-primary text-primary py-3 px-4'>Edit Property</Button>
             </div>
-            <div className='pt-5 pb-10'>
-                <div className=''>
+            <div className='flex  pt-5 pb-10'>
+                <div className='flex flex-col w-10/12 overflow-hidden'>
                     <Tabs defaultValue="overview" className="w-full bg-white">
-                        <TabsList className="flex flex-row bg-white text-gray-800  w-full -space-x-3 text-xs py-0">
+                        <TabsList className="flex flex-row bg-white text-gray-800  w-full -space-x-5 text-xs py-0">
                             <TabsTrigger value="overview" className='hover:border-b-2 active:border-b-2 hover:border-primary h-full py-3'><LayoutDashboard className='h-4' /> <p className='text-xs'>Overview</p> </TabsTrigger>
                             <TabsTrigger value="tenant" className='hover:border-b-2 active:border-b-2 hover:border-primary h-full py-3'><Users2 className='h-4' /><p className='text-xs'>Tenant</p></TabsTrigger>
                             <TabsTrigger value="application" className='hover:border-b-2 active:border-b-2 hover:border-primary h-full py-3'><DoorOpen className='h-4' /><p className='text-xs'>Rent Application</p></TabsTrigger>
@@ -36,7 +37,7 @@ export default function property() {
                                     luxury living. Situated in a prestigious location, <span className='text-primary'>read more...</span>
                                 </p>
                                 <div>
-                                    <img src="/images/living-room-lg.png" alt="" />
+                                    <img src="/images/living-room-lg.png"  alt="" />
                                 </div>
                                 <div className='py-2'>
                                     <div className='w-11/12 mx-auto h-px bg-gray-300'></div>
@@ -66,15 +67,15 @@ export default function property() {
                                 <div className='font-rubik mt-10'>
                                     <h3 className='capitalize text-sm my-4'>Amenities</h3>
                                     <div className='grid grid-cols-2 text-sm justify-between gap-y-6'>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Electricity</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Sewage Disposal</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>24/7 Security</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Garbage Treatment</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Internet</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Gas</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Cable Tv</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Water</span> </div>
-                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary'/> <span className='text-gray-700'>Cleaning Services</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Electricity</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Sewage Disposal</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>24/7 Security</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Garbage Treatment</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Internet</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Gas</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Cable Tv</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Water</span> </div>
+                                        <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Cleaning Services</span> </div>
 
                                     </div>
                                 </div>

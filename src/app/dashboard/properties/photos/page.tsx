@@ -3,11 +3,11 @@ import Link from "next/link"
 
 import PhotosIcon from "@/components/Icons/PhotosIcon"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 
-
-export default function details() {
-
+export default function Photos() {
+    const router = useRouter()
     return (
         <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
             <div className='py-6 px-4 self-center'>
@@ -29,8 +29,8 @@ export default function details() {
 
                 </div>
                 <div className='text-center py-4'>
-                    <div className='py-2'><button className='text-[#fff] font-bold px-24 py-5 w-full font-rubik bg-green-600'>Next</button></div>
-                    <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-5 w-full font-rubik'>Back</button></div>
+                    <div className='py-2'><Link href="/dashboard/properties/utilities" ><Button>Next</Button> </Link></div>
+                    <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik'  onClick={() => { router.push('/dashboard/properties/details') }}>Back</button></div>
                 </div>
             </div>
         </div>

@@ -1,10 +1,12 @@
+'use client'
 import Link from "next/link"
-
+import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRouter } from "next/navigation";
 
 
-
-export default function Details() {
+export default function Utilities() {
+    const router = useRouter();
     return (
         <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
             <div className='py-6'>
@@ -99,8 +101,8 @@ export default function Details() {
                     </div>
                 </div>
                 <div className='text-center py-10'>
-                    <div className='py-2'><Link href="/dashboard/properties/amenities" className='text-[#fff] font-bold px-24 py-5 w-full font-rubik bg-green-600'>Next</Link></div>
-                    <div className='py-2'><Link href="/dashboard/properties/photos" className='text-primary border-primary border font-bold px-24 py-5 w-full font-rubik' >Back</Link></div>
+                    <div className='py-2'><Link href="/dashboard/properties/amenities"><Button>Next</Button> </Link></div>
+                    <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik'  onClick={() => { router.push('/dashboard/properties/photos') }}>Back</button></div>
                 </div>
             </div>
         </div>

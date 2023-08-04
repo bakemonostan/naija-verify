@@ -79,8 +79,8 @@ export default function AddDetails() {
                 </Form>
             </div>
             <div className='text-center py-10'>
-                <div className='py-2'><button className='text-[#fff] font-bold px-24 py-5 w-full font-rubik bg-green-600'>Next</button></div>
-                <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-5 w-full font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
+                <div className='py-2'><Link href="/dashboard/properties/photos" ><Button>Next</Button> </Link></div>
+                <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
             </div>
         </div>
     )

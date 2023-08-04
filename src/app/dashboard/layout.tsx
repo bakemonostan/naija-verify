@@ -4,7 +4,7 @@ import SideBar from '@/components/SideBar'
 import TopBar from '@/components/TopBar'
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-function Arrows({ isExpanded }):JSX.Element {
+function Arrows({ isExpanded }): JSX.Element {
   if (isExpanded) {
     return <ChevronLeft height={15} width={15} className='text-white text-sm' />;
   }
@@ -18,7 +18,7 @@ export default function DashLayout({
   const [isOpen, setIsOpen] = useState(false)
 
   return <main className='' >
-    <div className='flex flex-col' onClick={() => { isOpen ? setIsOpen(false) : console.log('')}}>
+    <div className='flex flex-col' onClick={() => { isOpen ? setIsOpen(false) : console.log('') }}>
       <TopBar />
       <div className='flex flex-row'>
         <SideBar expanded={isOpen} />
@@ -28,7 +28,9 @@ export default function DashLayout({
           </div>
 
         </div>
-        {children}
+        <div className='mx-auto md:ml-56 lg:ml-72 lg:px-10 lg:py-16'>
+          {children}
+        </div>
       </div>
     </div>
   </main>
