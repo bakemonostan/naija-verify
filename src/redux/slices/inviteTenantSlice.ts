@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { set } from "date-fns";
 
 export type InvitationType = "screen" | "rental" | "report" | null;
 
