@@ -25,8 +25,8 @@ import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form";
-import { useAppDispatch } from "@/redux/store"
-import { InvitationType, chooseInvitationType } from "@/redux/slices/inviteTenantSlice"
+import { useAppDispatch, useAppSelector } from "@/redux/store"
+import { InvitationType, chooseInvitationType, setModal, } from "@/redux/slices/inviteTenantSlice"
 
 const formSchema = z.object({
     fullname: z.string().min(2, {
@@ -51,6 +51,7 @@ const formSchema = z.object({
 })
 
 export default function InvitationForm() {
+    let { modalState } = useAppSelector((state) => state.inviteTenant.value)
     const form = useForm<z.infer<typeof formSchema>>({
         defaultValues: {
             fullname: "",
@@ -66,6 +67,7 @@ export default function InvitationForm() {
     const dispatch = useAppDispatch();
 
     const setInvitationType = (type: InvitationType) => {
+        setModalState(false)
         dispatch(chooseInvitationType(
             {
                 invitationType: type
@@ -73,87 +75,62 @@ export default function InvitationForm() {
         ))
     }
 
-    const { handleSubmit, reset } = form
+    const setModalState = (state: boolean) => {
+        dispatch(setModal(
+            {
+                modalState: state
+            }
+        ))
+    }
+
+
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-
-        reset()
-        console.log(values)
+        setModalState(true)
+        form.reset()
     }
 
     return (
         <div className='w-full h-screen '
         >
-            {/* <BaseModal title="How do you want to screen the tenant?">
-                <div className="flex flex-col gap-5 lg:grid-cols-2 lg:gap-16 lg:flex-row lg:grid">
-                    <div className="rounded-sm bg-green-50">
-                        <div className="flex justify-between gap-2 px-2 py-5 text-left lg:items-center lg:text-center lg:flex-col-reverse">
-                            <div className="w-2/3 ">
-                                <h3 className="font-bold text-secondary">Rental Application & Screening Report</h3>
-                                <p className="text-xs text-secondary-10">Get the full picture with everything you need to decide if they are a good fit.</p>
-                            </div>
-                            <div className="w-1/3 lg:w-25 lg:h-25">
-                                <img src="/images/rental.svg" alt="" className="relative lg:left-2" />
-                            </div>
-                        </div>
-                        <div className="mx-auto lg:w-7/12 lg:pb-5">
-                            <Button >
-                                Invite to apply
-                            </Button>
-                        </div>
-                    </div>
-                    <div className="rounded-sm bg-green-50">
-                        <div className="flex justify-between gap-2 px-2 py-5 text-left lg:items-center lg:text-center lg:flex-col-reverse">
-                            <div className="w-2/3 ">
-                                <h3 className="font-bold text-secondary">Screening Report Only</h3>
-                                <p className="text-xs text-secondary-10">Perfect when the renter already filled out an application elsewhere..</p>
-                            </div>
-                            <div className="w-1/3 lg:w-25 lg:h-25">
-                                <img src="/images/screening.svg" alt="" className="relative lg:left-2" />
-                            </div>
-                        </div>
-                        <div className="mx-auto lg:w-7/12 lg:pb-5">
-                            <Button>
-                                Request Report
-                            </Button>
-                        </div>
-                    </div>
+            {
+                modalState && (
 
-                </div>
-            </BaseModal> */}
+                    <BaseModal image={true} title="Screen your tenant in 3 easy steps" subtitle='The renter pays the $55 fee making it free for you as the landlord.You will have the option to pay for the report yourself if you prefer.'>
 
-            {/* 
-            <BaseModal image={true} title="Screen your tenant in 3 easy steps" subtitle='The renter pays the $55 fee making it free for you as the landlord.You will have the option to pay for the report yourself if you prefer.'>
-
-                <div className='relative'>
-                    <hr className='absolute lg:w-[27.5rem] lg:h-0 border-secondary-20 w-0 h-3/5 left-[1.1rem] border-dotted  border-r-[.2rem] lg:border-t-[.2rem]  top-7 z-1 lg:top-5 lg:left-[8.5rem]' />
-                    <ul className="space-y-14 lg:flex lg:space-y-0 lg:space-x-5">
-                        <li className='flex items-center gap-6 lg:flex-col'>
-                            <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">1</span>
-                            <span className='text-secondary-10 lg:text-center lg:text-sm'>
-                                You provide information about the renter
-                            </span>
-                        </li>
-                        <li className='flex items-center gap-6 lg:flex-col'>
-                            <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">2</span>
-                            <span className='text-secondary-10 lg:text-center lg:text-sm '>
-                                The renter verifies their identity
-                            </span>
-                        </li>
-                        <li className='flex items-center gap-6 lg:flex-col'>
-                            <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">3</span>
-                            <span className='text-secondary-10 lg:text-center lg:text-sm'>
-                                You will receive an email of their screening report
-                            </span>
-                        </li>
-                    </ul>
-                    <div className="mx-auto mt-8 lg:w-3/6">
-                        <Button>
-                            Begin Process
-                        </Button>
-                    </div>
-                </div>
-            </BaseModal > */}
+                        <div className='relative'>
+                            <hr className='absolute lg:w-[27.5rem] lg:h-0 border-secondary-20 w-0 h-3/5 left-[1.1rem] border-dotted  border-r-[.2rem] lg:border-t-[.2rem]  top-7 z-1 lg:top-5 lg:left-[8.5rem]' />
+                            <ul className="space-y-14 lg:flex lg:space-y-0 lg:space-x-5">
+                                <li className='flex items-center gap-6 lg:flex-col'>
+                                    <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">1</span>
+                                    <span className='text-secondary-10 lg:text-center lg:text-sm'>
+                                        You provide information about the renter
+                                    </span>
+                                </li>
+                                <li className='flex items-center gap-6 lg:flex-col'>
+                                    <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">2</span>
+                                    <span className='text-secondary-10 lg:text-center lg:text-sm '>
+                                        The renter verifies their identity
+                                    </span>
+                                </li>
+                                <li className='flex items-center gap-6 lg:flex-col'>
+                                    <span className="relative z-10 flex items-center justify-center p-4 text-lg font-light text-white rounded-full w-9 h-9 bg-primary">3</span>
+                                    <span className='text-secondary-10 lg:text-center lg:text-sm'>
+                                        You will receive an email of their screening report
+                                    </span>
+                                </li>
+                            </ul>
+                            <div className="mx-auto mt-8 lg:w-3/6">
+                                <Button
+                                    onClick={() => setInvitationType('screen')}
+                                >
+                                    Begin Process
+                                </Button>
+                            </div>
+                        </div>
+                    </BaseModal >
+                )
+            }
 
             <div className='relative h-full gap-3 lg:flex lg:pl-20 lg:pt-14'>
                 <section className='w-full h-full px-5 space-y-6 md:px-0 md:w-8/12 md:mx-auto lg:mx-0'>

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
 import SolidUserIcon from "@/components/Icons/SolidUserIcon";
+import { useToast } from "@/components/ui/use-toast"
 import HouseIconTwo from "@/components/Icons/HouseIconTwo";
 import { Button } from "@/components/ui/button"
 import {
@@ -18,14 +19,11 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form";
-
-
 
 const FormSchema = z.object({
     fullName: z.string().nonempty({ message: "Full name is required" }),
@@ -49,12 +47,6 @@ const FormSchema = z.object({
     }),
 })
 
-
-
-
-
-
-
 type Props = {}
 export default function ScreeningForm({ }: Props) {
     const form = useForm<z.infer<typeof FormSchema>>({
@@ -72,9 +64,13 @@ export default function ScreeningForm({ }: Props) {
             tenancyEndDate: "",
         },
     })
-    const { register, handleSubmit, formState } = form
+    const { toast } = useToast()
+    const { handleSubmit, formState } = form
 
-
+    const onSubmit = handleSubmit((data) => {
+        form.reset()
+        console.log(data)
+    })
 
     return (
         <section className='w-full h-full max-w-4xl p-5 mx-auto md:w-5/6 lg:w-5/6' >
@@ -85,7 +81,9 @@ export default function ScreeningForm({ }: Props) {
 
 
             <Form {...form} >
-                <form >
+                <form
+                    onSubmit={onSubmit}
+                >
 
                     {/* top */}
                     <div className="flex flex-col items-center py-5 mx-auto ">
@@ -312,6 +310,12 @@ export default function ScreeningForm({ }: Props) {
                             type="submit"
                             className="w-full"
                             disabled={formState.isSubmitting}
+                            onClick={() =>
+                                toast({
+                                    title: "Form submitted",
+                                    description: "We've submitted your form.",
+                                })
+                            }
                         >
                             Submit
                         </Button>
