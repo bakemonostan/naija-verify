@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import ScreeningForm from "./ScreeningForm";
 import InvitationForm from "./InvitationForm";
 import ChooseScreening from "./ChooseScreening";
+import Report from "./Report";
 
 export default function UseInviteTenantClient() {
     const invitationType = useAppSelector((state) => state.inviteTenant.value.invitationType);
@@ -20,6 +21,11 @@ export default function UseInviteTenantClient() {
         return (
             <InvitationForm />
 
+        )
+    }
+    if (invitationType === 'report') {
+        return (
+            <Report />
         )
     }
 
