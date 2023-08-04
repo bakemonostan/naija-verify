@@ -1,14 +1,11 @@
 'use client'
-
-import SolidUserIcon from "../Icons/SolidUserIcon";
-import HouseIcon from "../Icons/HouseIcon";
-import DocumentIcon from "../Icons/DocumentIcon";
-import HouseIconTwo from "../Icons/HouseIconTwo";
+import SolidUserIcon from "@/components/Icons/SolidUserIcon";
+import DocumentIcon from "@/components/Icons/DocumentIcon";
+import HouseIconTwo from "@/components/Icons/HouseIconTwo";
 import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -24,7 +21,6 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Input } from "@/components/ui/input"
 
-import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form";
@@ -51,18 +47,13 @@ const formSchema = z.object({
 
 })
 
-
-
-
-
-
 export default function InvitationForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         defaultValues: {
             fullname: "",
             email: "",
             phoneNumber: "",
-            properties: "",
+            properties: "Select Property",
             inviteBy: "Email",
             applicationType: "Free",
         },
@@ -77,19 +68,19 @@ export default function InvitationForm() {
     }
 
     return (
-        <div className='w-full h-screen border border-red-400'
+        <div className='w-full h-screen '
         >
             <div className='relative h-full gap-3 lg:flex lg:pl-20 lg:pt-14'>
-                <section className='w-full h-full px-5 md:px-0 md:w-8/12 md:mx-auto lg:mx-0'>
+                <section className='w-full h-full px-5 space-y-6 md:px-0 md:w-8/12 md:mx-auto lg:mx-0'>
                     <div>
-                        <h1>Invite Tenant to apply</h1>
-                        <p>You can change this information anytime</p>
+                        <h1 className="text-xl font-semibold">Invite Tenant to apply</h1>
+                        <p className='text-xs text-secondary-10'>You can change this information anytime</p>
                     </div>
                     <Form {...form}>
-                        <form action="#" className=' lg:w-10/12'
+                        <form action="#" className='py-2 pb-6 lg:w-10/12'
                             onSubmit={form.handleSubmit(onSubmit)}
                         >
-                            <div className='flex items-center gap-2'>
+                            <div className='flex items-center gap-2 pb-5'>
                                 <div className="flex items-center justify-center p-1 rounded-full w-9 bg-primary-10 ">
                                     <SolidUserIcon />
                                 </div>
@@ -103,21 +94,19 @@ export default function InvitationForm() {
                                         <FormItem>
                                             <FormLabel>Full name</FormLabel>
                                             <FormControl>
-                                                <Input placeholder="Enter full name" {...field} />
+                                                <Input className="" placeholder="Enter full name" {...field} />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
                                     )}
                                 />
-
-
                                 {/* radio group */}
-                                <div>
+                                <div className="my-5 ">
                                     <FormField
                                         control={form.control}
                                         name="inviteBy"
                                         render={({ field }) => (
-                                            <FormItem className="space-y-3">
+                                            <FormItem className="">
                                                 <FormLabel>Send Invite by</FormLabel>
                                                 <FormControl>
                                                     <RadioGroup
@@ -153,19 +142,15 @@ export default function InvitationForm() {
                                             </FormItem>
                                         )}
                                     />
-
                                 </div>
-
-
-
                                 {/* email and number */}
-                                <div className='w-full gap-9 lg:flex'>
+                                <div className='w-full my-3 mt-6 gap-9 lg:flex'>
                                     <FormField
                                         control={form.control}
                                         name="email"
                                         render={({ field }) => (
                                             <FormItem
-                                                className='lg:w-1/2'
+                                                className='pb-4 lg:w-1/2'
                                             >
                                                 <FormLabel>Email</FormLabel>
                                                 <FormControl>
@@ -182,7 +167,7 @@ export default function InvitationForm() {
                                         render={({ field }) => (
 
                                             <FormItem
-                                                className='lg:w-1/2'
+                                                className='pb-4 lg:w-1/2'
                                             >
                                                 <FormLabel>Phone Number</FormLabel>
                                                 <FormControl>
@@ -202,7 +187,7 @@ export default function InvitationForm() {
                                 </div>
                                 <p className='text-sm font-semibold'>Rental Property</p>
                             </div>
-                            <div>
+                            <div className='py-4'>
                                 <FormField
                                     control={form.control}
                                     name="properties"
@@ -211,14 +196,14 @@ export default function InvitationForm() {
                                             <FormLabel>Property applying to</FormLabel>
                                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                 <FormControl>
-                                                    <SelectTrigger className="w-full border border-red-400">
-                                                        <SelectValue className="text-black" placeholder="Select a verified email to display" />
+                                                    <SelectTrigger className="w-full ">
+                                                        <SelectValue className="text-black" placeholder="Select Property" />
                                                     </SelectTrigger>
                                                 </FormControl>
                                                 <SelectContent>
-                                                    <SelectItem value="m@example.com">m@example.com</SelectItem>
-                                                    <SelectItem value="m@google.com">m@google.com</SelectItem>
-                                                    <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                                    <SelectItem value="Bungalow">Bungalow</SelectItem>
+                                                    <SelectItem value="Semi detach duplexm">Semi detach duplex</SelectItem>
+                                                    <SelectItem value="Warehouse">Warehouse</SelectItem>
                                                 </SelectContent>
                                             </Select>
                                             <FormMessage />
@@ -234,13 +219,12 @@ export default function InvitationForm() {
                                 </div>
                                 <p className='text-sm font-semibold'>Application Type</p>
                             </div>
-                            <div>
+                            <div className='py-5'>
                                 <FormField
                                     control={form.control}
                                     name="applicationType"
                                     render={({ field }) => (
                                         <FormItem className="space-y-3">
-                                            <FormLabel>Send Invite by</FormLabel>
                                             <FormControl>
                                                 <RadioGroup
                                                     onValueChange={field.onChange}
@@ -293,7 +277,7 @@ export default function InvitationForm() {
                                 />
                             </div>
 
-                            <Button> Submit </Button>
+                            <Button className='mt-10'> Submit </Button>
                         </form>
                     </Form>
                 </section>

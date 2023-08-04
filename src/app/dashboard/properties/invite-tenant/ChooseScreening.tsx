@@ -6,7 +6,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 
 // 
 
@@ -14,10 +14,10 @@ export default function ChooseScreening() {
     return (
         <Dialog>
             <DialogTrigger>Open</DialogTrigger>
-            <DialogContent className="w-[90%] max-w-[22rem] sm:max-w-4xl">
+            <DialogContent className="w-[90%] max-w-[22rem] sm:max-w-4xl pb-28">
                 <DialogHeader>
                     <DialogTitle className="pb-5 sm:text-center ">How do you want to screen the tenant?</DialogTitle>
-                    <DialogDescription>
+                    <DialogDescription >
                         <div className="flex flex-col grid-cols-2 gap-3 space-y-5 md:gap-16 sm:space-y-0 sm:flex-row sm:grid">
                             <div className="rounded-sm bg-green-50">
                                 <div className="flex justify-between gap-2 px-2 py-5 text-left sm:items-center sm:text-center sm:flex-col-reverse">
