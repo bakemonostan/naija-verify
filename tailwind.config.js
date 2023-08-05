@@ -26,8 +26,16 @@ module.exports = {
           10: "#DBFFD8",
         },
         secondary: {
-          DEFAULT: "#4F4F4F",
+          DEFAULT: "#4f4f4f",
           10: "#90979E",
+          10.1: "#dcdcdc",
+          20: "#b9b9b9",
+          30: "#959595",
+          40: "#727272",
+          50: "#3f3f3f",
+          60: "#2f2f2f",
+          70: "#202020",
+          80: "#101010",
         },
       },
       keyframes: {

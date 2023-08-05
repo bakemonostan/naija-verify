@@ -29,6 +29,7 @@ export const SideBarData: ISideBarData[] = [
     path: "/dashboard/tenant",
     icon: TenantIcon,
   },
+
   {
     title: "Lease",
     path: "/dashboard/lease",
@@ -38,6 +39,11 @@ export const SideBarData: ISideBarData[] = [
     title: "Maintenance",
     path: "/dashboard/maintenance",
     icon: MaintenanceIcon,
+  },
+  {
+    title: "Invite Tenant",
+    path: "/dashboard/invite-tenant",
+    icon: TenantIcon,
   },
   {
     title: "Applicant",

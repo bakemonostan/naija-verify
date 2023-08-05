@@ -28,7 +28,7 @@ export default function DashLayout({
           </div>
 
         </div>
-        <div className='mx-auto md:ml-56 lg:ml-72 lg:px-10 lg:py-16'>
+        <div className='mx-auto w-full lg:ml-72 lg:px-10 lg:py-16'>
           {children}
         </div>
       </div>
