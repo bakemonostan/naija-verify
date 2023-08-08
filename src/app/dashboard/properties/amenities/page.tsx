@@ -125,7 +125,7 @@ export default function Amenities() {
                     <Dialog>
                         <DialogTrigger className='w-full'><div className='py-2'><Button>Next</Button></div>
                         </DialogTrigger>
-                        <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik' onClick={() => { router.push('/dashboard/properties/utilities') }}>Back</button></div>
+                        <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik'  ><Link href='/dashboard/properties/utilities'>Back</Link></button></div>
 
                         <DialogContent className='mt-12 w-10/12'>
                             <PropertyModal />
