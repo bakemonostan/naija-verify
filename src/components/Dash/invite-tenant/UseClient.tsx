@@ -8,7 +8,6 @@ import Report from "./Report";
 
 export default function UseInviteTenantClient() {
     const invitationType = useAppSelector((state) => state.inviteTenant.value.invitationType);
-    const router = useRouter();
 
 
 
