@@ -94,7 +94,6 @@ export default function PropertyComp() {
                                         <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Cable Tv</span> </div>
                                         <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Water</span> </div>
                                         <div className='flex flex-row items-center space-x-2'><CheckCircle2 height={14} width={14} className='text-primary' /> <span className='text-gray-700'>Cleaning Services</span> </div>
-
                                     </div>
                                 </div>
                             </TabsContent>
