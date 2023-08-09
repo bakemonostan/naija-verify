@@ -31,45 +31,57 @@ export default function PropertyComp() {
             </div>
             <div className='flex pt-5 pb-10'>
                 <div className='flex flex-col w-10/12 overflow-hidden'>
-                    <Tabs defaultValue="overview" className="w-full bg-white">
-                        <TabsList className="flex flex-row w-full py-0 -space-x-5 text-xs text-gray-800 bg-white">
+                    <Tabs defaultValue="overview" className="w-full min-w-full bg-white">
+                        <TabsList className="flex flex-row w-full py-0 -space-x-5 lg:space-x-32 text-xs text-gray-800 bg-white">
                             <TabsTrigger value="overview" className='h-full py-3 hover:border-b-2 active:border-b-2 hover:border-primary'><LayoutDashboard className='h-4' /> <p className='text-xs'>Overview</p> </TabsTrigger>
                             <TabsTrigger value="tenant" className='h-full py-3 hover:border-b-2 active:border-b-2 hover:border-primary'><Users2 className='h-4' /><p className='text-xs'>Tenant</p></TabsTrigger>
                             <TabsTrigger value="application" className='h-full py-3 hover:border-b-2 active:border-b-2 hover:border-primary'><DoorOpen className='h-4' /><p className='text-xs'>Rent Application</p></TabsTrigger>
+                            <TabsTrigger value="application" className='h-full py-3 hover:border-b-2 active:border-b-2 hover:border-primary hidden lg:block'><DoorOpen className='h-4' /><p className='text-xs'>Report</p></TabsTrigger>
+
                         </TabsList>
                         <div className='py-2'>
-                            <TabsContent value="overview">
+                            <TabsContent value="overview" className='w-full'>
                                 <p className='text-sm'>Welcome to Adeola Odeku Estate, an exquisite rental property that epitomizes the pinnacle of
                                     luxury living. Situated in a prestigious location, <span className='text-primary'>read more...</span>
                                 </p>
-                                <div>
-                                    <img src="/images/living-room-lg.png" alt="" />
+                                <div className='flex flex-col lg:flex-row'>
+                                    <div className='flex flex-row'>
+                                        <img src="/images/living-room-lg.png" alt="" />
+                                        <img src="/images/living-room-lg.png" alt="" className='hidden lg:block' />
+                                        <img src="/images/living-room-lg.png" alt="" className='hidden lg:block' />
+                                    </div>
+                                    <div className='py-2 lg:hidden'>
+                                        <div className='w-11/12 h-px mx-auto bg-gray-300'></div>
+                                    </div>
+                                    <div className='py-2 hidden lg:block'>
+                                        <div className='w-px h-full mx-auto bg-gray-300'></div>
+                                    </div>
+                                    <div className='flex flex-col space-y-3 font-rubik'>
+                                        <div className='flex flex-row items-center justify-between mb-3'>
+                                            <h4 className='text-xs text-gray-600 uppercase'>rent price</h4>
+                                            <span className='text-2xl font-medium'>₦120,394</span>
+                                        </div>
+                                        <div className='flex flex-row items-center justify-between'>
+                                            <h4 className='text-xs text-gray-400 capitalize'>basic rent</h4>
+                                            <span className='text-sm text-gray-700'>₦110,394/month</span>
+                                        </div>
+                                        <div className='flex flex-row items-center justify-between'>
+                                            <h4 className='text-xs text-gray-400 capitalize'>service charge</h4>
+                                            <span className='text-sm text-gray-700'>₦110,394/month</span>
+                                        </div>
+                                        <div className='flex flex-row items-center justify-between'>
+                                            <h4 className='text-xs text-gray-400 capitalize'>security deposit</h4>
+                                            <span className='text-sm text-gray-700'>₦110,394/month</span>
+                                        </div>
+                                        <div className='flex flex-row items-center justify-between'>
+                                            <h4 className='text-xs text-gray-400 uppercase'>vat</h4>
+                                            <span className='text-sm text-gray-700'>₦110,394/month</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className='py-2'>
-                                    <div className='w-11/12 h-px mx-auto bg-gray-300'></div>
-                                </div>
-                                <div className='flex flex-col space-y-3 font-rubik'>
-                                    <div className='flex flex-row items-center justify-between mb-3'>
-                                        <h4 className='text-xs text-gray-600 uppercase'>rent price</h4>
-                                        <span className='text-2xl font-medium'>₦120,394</span>
+                                        <div className='w-11/12 h-px mx-auto bg-gray-300'></div>
                                     </div>
-                                    <div className='flex flex-row items-center justify-between'>
-                                        <h4 className='text-xs text-gray-400 capitalize'>basic rent</h4>
-                                        <span className='text-sm text-gray-700'>₦110,394/month</span>
-                                    </div>
-                                    <div className='flex flex-row items-center justify-between'>
-                                        <h4 className='text-xs text-gray-400 capitalize'>service charge</h4>
-                                        <span className='text-sm text-gray-700'>₦110,394/month</span>
-                                    </div>
-                                    <div className='flex flex-row items-center justify-between'>
-                                        <h4 className='text-xs text-gray-400 capitalize'>security deposit</h4>
-                                        <span className='text-sm text-gray-700'>₦110,394/month</span>
-                                    </div>
-                                    <div className='flex flex-row items-center justify-between'>
-                                        <h4 className='text-xs text-gray-400 uppercase'>vat</h4>
-                                        <span className='text-sm text-gray-700'>₦110,394/month</span>
-                                    </div>
-                                </div>
                                 <div className='mt-10 font-rubik'>
                                     <h3 className='my-4 text-sm capitalize'>Amenities</h3>
                                     <div className='grid justify-between grid-cols-2 text-sm gap-y-6'>
