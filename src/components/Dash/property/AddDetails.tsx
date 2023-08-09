@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input"
-// import ProgressTracker from "./ProgressTracker"
+import ProgressTracker from "./ProgressTracker"
 import {
     Form,
     FormControl,
@@ -39,8 +39,8 @@ export default function AddDetails() {
         console.log(values)
     }
     return (
-        <div className='flex flex-col justify-center self-center w-full px-4 font-rubik'>
-            {/* <ProgressTracker progress={[{checked:true},{checked:false},{checked:false},{checked:false},{checked:true}]}/> */}
+        <div className='flex flex-col self-center justify-center w-full px-4 font-rubik'>
+            <ProgressTracker progress={[{ checked: true }, { checked: false }, { checked: false }, { checked: false }, { checked: true }]} />
             <div>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
@@ -79,9 +79,9 @@ export default function AddDetails() {
                     </form>
                 </Form>
             </div>
-            <div className='text-center py-10'>
+            <div className='py-10 text-center'>
                 <div className='py-2'><Link href="/dashboard/properties/photos" ><Button>Next</Button> </Link></div>
-                <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
+                <div className='py-2'><button className='w-full px-24 py-3 font-bold border text-primary border-primary font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
             </div>
         </div>
     )

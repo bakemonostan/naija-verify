@@ -25,12 +25,9 @@ const Property = z.object({
     baths: z.string(),
     rent: z.string(),
     securitydeposit: z.string(),
-
-
-
 });
 
-export default function AddForm(){
+export default function AddForm() {
     const form = useForm<z.infer<typeof Property>>({
         resolver: zodResolver(Property),
         defaultValues: {
@@ -48,16 +45,12 @@ export default function AddForm(){
     })
     const router = useRouter()
     function onSubmit(values: z.infer<typeof Property>) {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
         router.push('/dashboard/properties/details')
-
         console.log(values)
     }
     return (
-        <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
-
-            <div className='flex flex-col justify-center self-center w-full px-4'>
+        <div className="flex flex-col justify-center mx-auto justify-items-center w-12/12">
+            <div className='flex flex-col self-center justify-center w-full px-4'>
                 <div>
                     <div className="py-6">
                         <Form {...form}>

@@ -24,6 +24,9 @@ import { Input } from "@/components/ui/input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { useForm } from "react-hook-form";
+import { useAppDispatch } from "@/redux/store";
+import { InvitationType, chooseInvitationType } from "@/redux/slices/inviteTenantSlice";
+import { set } from "date-fns";
 
 const FormSchema = z.object({
     fullName: z.string().nonempty({ message: "Full name is required" }),
@@ -64,12 +67,25 @@ export default function ScreeningForm({ }: Props) {
             tenancyEndDate: "",
         },
     })
+
+    const dispatch = useAppDispatch();
+
+    const setInvitationType = (type: InvitationType) => {
+        dispatch(chooseInvitationType(
+            {
+                invitationType: type
+            }
+        ))
+    }
     const { toast } = useToast()
     const { handleSubmit, formState } = form
 
     const onSubmit = handleSubmit((data) => {
+        setInvitationType('report')
+        setTimeout(() => {
+            setInvitationType(null)
+        }, 3000);
         form.reset()
-        console.log(data)
     })
 
     return (
