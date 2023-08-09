@@ -26,7 +26,7 @@ export default function PropertyComp() {
                 <h2 className='text-[22px] font-semibold '>Adeola Odeku Estate, Lekki</h2>
                 <p className='text-sm text-gray-400'>34, Chirs Festroad, Lagos, CO 10021</p>
             </div>
-            <div className='flex flex-col justify-center w-6/12'>
+            <div className='flex flex-col justify-center w-6/12 lg:w-3/12'>
                 <Button className='px-4 py-3 text-xs font-semibold bg-white border font-rubik border-primary text-primary'>Edit Property</Button>
             </div>
             <div className='flex pt-5 pb-10'>
@@ -44,8 +44,8 @@ export default function PropertyComp() {
                                 <p className='text-sm'>Welcome to Adeola Odeku Estate, an exquisite rental property that epitomizes the pinnacle of
                                     luxury living. Situated in a prestigious location, <span className='text-primary'>read more...</span>
                                 </p>
-                                <div className='flex flex-col lg:flex-row'>
-                                    <div className='flex flex-row'>
+                                <div className='flex flex-col lg:flex-row justify-around'>
+                                    <div className='flex flex-row w-full lg:w-8/12'>
                                         <img src="/images/living-room-lg.png" alt="" />
                                         <img src="/images/living-room-lg.png" alt="" className='hidden lg:block' />
                                         <img src="/images/living-room-lg.png" alt="" className='hidden lg:block' />
@@ -53,10 +53,10 @@ export default function PropertyComp() {
                                     <div className='py-2 lg:hidden'>
                                         <div className='w-11/12 h-px mx-auto bg-gray-300'></div>
                                     </div>
-                                    <div className='py-2 hidden lg:block'>
+                                    <div className='py-2 hidden lg:block mx-4'>
                                         <div className='w-px h-full mx-auto bg-gray-300'></div>
                                     </div>
-                                    <div className='flex flex-col space-y-3 font-rubik'>
+                                    <div className='flex flex-col space-y-3 w-full lg:w-4/12 font-rubik'>
                                         <div className='flex flex-row items-center justify-between mb-3'>
                                             <h4 className='text-xs text-gray-600 uppercase'>rent price</h4>
                                             <span className='text-2xl font-medium'>₦120,394</span>
