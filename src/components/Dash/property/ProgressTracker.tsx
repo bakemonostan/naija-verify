@@ -14,7 +14,7 @@ export default function ProgressTracker({ progress }: ProgressType) {
 
 
     return (
-        <div className="flex flex-col w-4/12 min-h-screen px-4 py-12 bg-primary-10">
+        <div className="flex flex-col h-full px-4 py-12 bg-primary-10">
             <div className="flex flex-col self-center space-y-10">
                 <div className="flex text-[#7A8086]">
                     <Checkbox id="terms2" checked={progress[0].checked} className="self-start mr-2 rounded-full checked:bg-primary" />

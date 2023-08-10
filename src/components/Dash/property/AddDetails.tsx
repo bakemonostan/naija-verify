@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input"
-import ProgressTracker from "./ProgressTracker"
+// import ProgressTracker from "./ProgressTracker"
 import {
     Form,
     FormControl,
@@ -40,7 +40,7 @@ export default function AddDetails() {
     }
     return (
         <div className='flex flex-col self-center justify-center w-full px-4 font-rubik'>
-            <ProgressTracker progress={[{ checked: true }, { checked: false }, { checked: false }, { checked: false }, { checked: true }]} />
+            {/* <ProgressTracker progress={[{ checked: true }, { checked: false }, { checked: false }, { checked: false }, { checked: true }]} /> */}
             <div>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
