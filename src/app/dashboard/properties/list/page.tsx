@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -63,8 +62,6 @@ export default function Properties() {
 
                             <input type="email" name="search" id="search" placeholder="Search" className="form-input w-full pl-8 py-2 border border-gray-300 rounded-sm outline-1" />
                         </label>
-                        {/* <Search className="text-gray-400" />
-                    <Input placeholder="Search" /> */}
                     </div>
                     <div className="flex flex-row justify-evenly align-middle items-center mt-3 bg-neutral-100 rounded-sm border border-gray-200 py-2 w-6/12 lg:w-auto lg:ml-3 px-4">
                         <Filter className="text-gray-400 text-xs mr-2" />
