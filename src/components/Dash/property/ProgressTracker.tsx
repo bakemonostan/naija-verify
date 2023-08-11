@@ -1,27 +1,27 @@
 'use client'
 import { Checkbox } from "@/components/ui/checkbox"
+import { CheckedState } from "@radix-ui/react-checkbox";
 
-interface TrackerProps{
-
-        checked:any;
-        current?:Boolean
+interface TrackerProps {
+    checked: CheckedState;
+    current?: Boolean
 }
 
-interface ProgressType{
-    progress:TrackerProps[]
+interface ProgressType {
+    progress: TrackerProps[]
 }
-export default function ProgressTracker({progress}:ProgressType) {
-    
+export default function ProgressTracker({ progress }: ProgressType) {
+
 
     return (
-        <div className="flex flex-col py-12 px-4 w-4/12 min-h-screen bg-primary-10">
-            <div className="flex flex-col space-y-10 self-center">
+        <div className="flex flex-col h-full px-4 py-12 bg-primary-10">
+            <div className="flex flex-col self-center space-y-10">
                 <div className="flex text-[#7A8086]">
-                    <Checkbox id="terms2" checked={progress[0].checked} className="rounded-full self-start checked:bg-primary mr-2" />
+                    <Checkbox id="terms2" checked={progress[0].checked} className="self-start mr-2 rounded-full checked:bg-primary" />
                     <div className="grid gap-1.5 leading-none">
                         <label
                             htmlFor="terms2"
-                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[0].checked ? 'text-primary':''}`}
+                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[0].checked ? 'text-primary' : ''}`}
                         >
                             Add your property
                         </label>
@@ -32,11 +32,11 @@ export default function ProgressTracker({progress}:ProgressType) {
                 </div>
 
                 <div className="flex text-[#7A8086]">
-                    <Checkbox id="terms2" checked={progress[1].checked} className="rounded-full self-start checked:bg-primary mr-2" />
+                    <Checkbox id="terms2" checked={progress[1].checked} className="self-start mr-2 rounded-full checked:bg-primary" />
                     <div className="grid gap-1.5 leading-none">
                         <label
                             htmlFor="terms2"
-                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[1].checked ? 'text-primary':''}`}
+                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[1].checked ? 'text-primary' : ''}`}
                         >
                             Property description
                         </label>
@@ -46,11 +46,11 @@ export default function ProgressTracker({progress}:ProgressType) {
 
                 </div>
                 <div className="flex text-[#7A8086]">
-                    <Checkbox id="terms2" checked={progress[2].checked} className="rounded-full self-start checked:bg-primary mr-2" />
+                    <Checkbox id="terms2" checked={progress[2].checked} className="self-start mr-2 rounded-full checked:bg-primary" />
                     <div className="grid gap-1.5 leading-none">
                         <label
                             htmlFor="terms2"
-                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[2].checked ? 'text-primary':''}`}
+                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[2].checked ? 'text-primary' : ''}`}
                         >
                             Property Photos
                         </label>
@@ -60,11 +60,11 @@ export default function ProgressTracker({progress}:ProgressType) {
 
                 </div>
                 <div className="flex text-[#7A8086]">
-                    <Checkbox id="terms2" checked={progress[3].checked} className="rounded-full self-start checked:bg-primary mr-2" />
+                    <Checkbox id="terms2" checked={progress[3].checked} className="self-start mr-2 rounded-full checked:bg-primary" />
                     <div className="grid gap-1.5 leading-none">
                         <label
                             htmlFor="terms2"
-                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[3].checked ? 'text-primary':''}`}
+                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[3].checked ? 'text-primary' : ''}`}
                         >
                             Available Utilities
                         </label>
@@ -74,11 +74,11 @@ export default function ProgressTracker({progress}:ProgressType) {
 
                 </div>
                 <div className="flex text-[#7A8086]">
-                    <Checkbox id="terms2"  checked={progress[4].checked} className="rounded-full self-start checked:bg-primary mr-2" />
+                    <Checkbox id="terms2" checked={progress[4].checked} className="self-start mr-2 rounded-full checked:bg-primary" />
                     <div className="grid gap-1.5 leading-none">
                         <label
                             htmlFor="terms2"
-                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[4].checked ? 'text-primary':''}`}
+                            className={`text-base font-semibold self-center my-auto leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ${progress[4].checked ? 'text-primary' : ''}`}
                         >
                             Amenities and Facilities
                         </label>
