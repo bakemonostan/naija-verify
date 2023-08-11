@@ -24,7 +24,19 @@ module.exports = {
         primary: {
           DEFAULT: "#0AB34E",
           10: "#DBFFD8",
+          10.1: "#cef0dc",
+          20: "#9de1b8",
+          30: "#6cd195",
+          40: "#3bc271",
+          50: "#0ab34e",
+          60: "#088f3e",
+          70: "#066b2f",
+          80: "#04481f",
+          90: "#022410",
         },
+
+        // DEFAULT: "#0AB34E",
+        // 10: "#DBFFD8",
         secondary: {
           DEFAULT: "#4f4f4f",
           10: "#90979E",

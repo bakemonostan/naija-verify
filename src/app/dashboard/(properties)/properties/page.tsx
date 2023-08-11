@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Properties() {
     return (
@@ -18,7 +19,7 @@ export default function Properties() {
                 <div className='py-10 text-center'>
                     <h1 className='text-xl'>No property listed</h1>
                     <p className='text-gray-400 font-rubik'>You haven’t listed any property</p>
-                    <div className='py-8'><button className='text-[#fff] font-bold py-5 w-64 font-rubik bg-green-600'>Add Property</button></div>
+                    <Link href='properties/add' className='block py-8'><button className='text-[#fff] font-bold py-5 w-64 font-rubik bg-green-600'>Add Property</button></Link>
                 </div>
             </div>
         </div>
