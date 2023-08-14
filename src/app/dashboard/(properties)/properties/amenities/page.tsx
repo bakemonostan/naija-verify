@@ -3,11 +3,9 @@ import Link from "next/link"
 import PropertyListedIcon from "@/components/Icons/PropertyListedIcon"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation";
 import {
     Dialog,
     DialogContent,
-
     DialogTrigger,
 } from "@/components/ui/dialog"
 
@@ -26,14 +24,19 @@ function PropertyModal() {
 }
 
 export default function Amenities() {
-    const router = useRouter();
     return (
         <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
-            <div className='py-6'>
-                <h2 className='text-[26px] font-semibold font-prompt '>Amenities and Furnishing</h2>
-                <p className='text-gray-400'>You can change this information anytime</p>
+            <div className="flex lg:flex-row justify-between py-6">
+                <div className=''>
+                    <h2 className='text-[26px] font-semibold font-prompt '>Amenities and Furnishing</h2>
+                    <p className='text-gray-400'>You can change this information anytime</p>
+                </div>
+                <div>
+                    <button className='hidden lg:block w-full px-24 py-3 font-bold border text-primary border-primary font-rubik'>
+                        Save and Exit
+                    </button>
+                </div>
             </div>
-
             <div className='flex flex-col justify-center self-center w-full font-rubik'>
                 <h3 className="text-sm">SELECT ALL THAT APPLIES</h3>
                 <div className="py-8">
@@ -123,11 +126,16 @@ export default function Amenities() {
                 </div>
                 <div className='text-center py-10'>
                     <Dialog>
-                        <DialogTrigger className='w-full'><div className='py-2'><Button>Next</Button></div>
-                        </DialogTrigger>
-                        <div className='py-2'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik'  ><Link href='/dashboard/properties/utilities'>Back</Link></button></div>
+                        <div className="flex flex-col w-full gap-x-8 lg:justify-between lg:flex-row-reverse py-10">
+                            <DialogTrigger className='w-full'><div className='py-2'><Button>Next</Button></div>
+                            </DialogTrigger>
+                            <div className='py-2 w-full'><button className='text-primary border-primary border font-bold px-24 py-3 w-full font-rubik'  >
+                                <Link href='/dashboard/properties/utilities'>Back</Link>
+                            </button>
+                            </div>
+                        </div>
 
-                        <DialogContent className='mt-12 w-10/12'>
+                        <DialogContent className='mt-12 w-10/12 lg:w-4/12'>
                             <PropertyModal />
                         </DialogContent>
                     </Dialog>

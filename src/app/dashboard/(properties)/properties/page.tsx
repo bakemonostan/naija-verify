@@ -17,8 +17,8 @@ export default function Properties() {
                 <img src="/images/missing.png" alt="" className='self-center w-52 lg:mt-12' />
                 <div className='py-10 text-center'>
                     <h1 className='text-xl'>No property listed</h1>
-                    <p className='text-gray-400 font-rubik'>You haven’t listed any property</p>
-                    <div className='py-8'><button className='text-[#fff] font-bold py-5 w-64 font-rubik bg-green-600'>Add Property</button></div>
+                    <p className='text-gray-400 font-rubik text-sm'>You haven’t listed any property</p>
+                    <div className='py-4 lg:py-5'><button className='text-[#fff] text-sm font-bold py-5 w-64 font-rubik bg-green-600'>Add Property</button></div>
                 </div>
             </div>
         </div>

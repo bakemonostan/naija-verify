@@ -79,9 +79,9 @@ export default function AddDetails() {
                     </form>
                 </Form>
             </div>
-            <div className='py-10 text-center'>
-                <div className='py-2'><Link href="/dashboard/properties/photos" ><Button>Next</Button> </Link></div>
-                <div className='py-2'><button className='w-full px-24 py-3 font-bold border text-primary border-primary font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
+            <div className='flex flex-col w-full gap-x-8 lg:justify-between lg:flex-row-reverse py-10'>
+                <div className='py-2 w-full '><Link href="/dashboard/properties/photos" ><Button className="w-full">Next</Button> </Link></div>
+                <div className='py-2 w-full'><button className='w-full px-24 py-3 font-bold border text-primary border-primary font-rubik' onClick={() => { router.push('/dashboard/properties/add') }}>Back</button></div>
             </div>
         </div>
     )
