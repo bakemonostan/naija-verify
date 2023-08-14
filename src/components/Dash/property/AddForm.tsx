@@ -48,6 +48,7 @@ export default function AddForm() {
         router.push('/dashboard/properties/details')
         console.log(values)
     }
+
     return (
         <div className="flex flex-col justify-center mx-auto justify-items-center ">
             <div className='flex flex-col self-center justify-center w-full px-4'>
@@ -216,7 +217,9 @@ export default function AddForm() {
                                     )}
                                 />
 
-                                <Button type="submit" >Next</Button>
+                                <Button type="submit"
+
+                                >Next</Button>
                             </form>
                         </Form >
                     </div >

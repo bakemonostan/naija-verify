@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { CheckedState } from "@radix-ui/react-checkbox";
 
 export type FormType =
   | "add"
@@ -11,8 +10,8 @@ export type FormType =
   | null;
 
 type MultiStepFormState = {
-  currentForm?: FormType;
-  checked?: CheckedState;
+  currentForm?: string | null;
+  checkedValues?: string[];
 };
 
 type InitialState = {
@@ -21,8 +20,8 @@ type InitialState = {
 
 const initialState = {
   value: {
-    currentForm: "photos",
-    checked: false,
+    currentForm: null,
+    // checkedValues: [],
   } as MultiStepFormState,
 } as InitialState;
 
@@ -30,14 +29,20 @@ export const multiStepForm = createSlice({
   name: "multiStepForm",
   initialState,
   reducers: {
-    setForm: (state, action: PayloadAction<MultiStepFormState>) => {
-      state.value.currentForm = action.payload.currentForm;
-      state.value.checked = action.payload.checked;
+    setForm: (state, action: PayloadAction<string>) => {
+      state.value.currentForm = action.payload;
     },
+    //spread currentform to checkedValues
+    // setCheckedValues: (state, action: PayloadAction<string>) => {
+    //   state.value.checkedValues = [
+    //     ...state.value.checkedValues,
+    //     action.payload,
+    //   ];
+    // },
   },
 });
 
 export const { setForm } = multiStepForm.actions;
 export const selectMultiStepForm = (state: RootState) =>
-  state.multiStepForm.value;
+  state.multiStepForm?.value;
 export default multiStepForm.reducer;
