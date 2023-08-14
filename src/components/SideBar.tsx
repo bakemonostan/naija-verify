@@ -9,9 +9,9 @@ interface SideBarProps {
 export default function SideBar({ expanded }: SideBarProps) {
   return (
     <div className='z-40'>
-      <div className={`fixed overflow-auto bg-[#1E1E1E]  text-white w-auto min-h-screen font-rubik lg:block ${expanded ? 'block' : 'hidden'}`}>
+      <div className={`fixed overflow-auto bg-[#1E1E1E]  text-white w-auto h-full font-rubik lg:block ${expanded ? 'block' : 'hidden'}`}>
         <div className="flex flex-col px-14 ">
-          <div className="flex py-12">
+          <div className="hidden py-12 md:flex ">
             <LogoIcon variant='dark' />
           </div>
           <div>

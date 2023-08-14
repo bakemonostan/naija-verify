@@ -9,23 +9,24 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import Link from "next/link";
 //Todo: add props & type definations
 function Property() {
     return (
-        <div className='flex flex-col border border-gray-400 w-full'>
-            <div className='flex flex-row justify-between items-center py-4 px-4'>
+        <div className='flex flex-col w-full border border-gray-400'>
+            <div className='flex flex-row items-center justify-between px-4 py-4'>
                 <div className=''>
-                    <h4 className='font-prompt text-sm'>Adeola Odeku Estate, Lekki</h4>
+                    <h4 className='text-sm font-prompt'>Adeola Odeku Estate, Lekki</h4>
                     <p className='text-secondary-10 text-[12px]'>34, Chirs Festroad, Lagos, CO 10021</p>
                 </div>
                 <div>
-                    <MoreVertical className='text-gray-600 h-5' />
+                    <MoreVertical className='h-5 text-gray-600' />
                 </div>
             </div>
             <div className=''>
-                <div className='h-px w-11/12 mx-auto bg-gray-200'></div>
+                <div className='w-11/12 h-px mx-auto bg-gray-200'></div>
             </div>
-            <div className='flex flex-row justify-evenly items-center py-4'>
+            <div className='flex flex-row items-center py-4 justify-evenly'>
                 <div className=''>
                     <p className='text-sm'><span className='text-[12px] text-secondary-10'> Price: </span> ₦120,394 </p>
                 </div>
@@ -41,8 +42,8 @@ function Property() {
 }
 export default function Properties() {
     return (
-        <div className="flex flex-col w-full justify-center ">
-            <div className='flex flex-col lg:flex-row lg:justify-between py-6'>
+        <div className="flex flex-col justify-center w-full ">
+            <div className='flex flex-col py-6 lg:flex-row lg:justify-between'>
                 <div>
                     <h2 className='text-[26px] font-semibold '>Properties</h2>
                     <p className='text-gray-400'>View all the properties you have</p>
@@ -50,22 +51,22 @@ export default function Properties() {
                 </div>
 
                 <div className="mt-3">
-                    <Button className='font-bold text-sm px-2 lg:px-24'>Add Property</Button>
+                    <Link href="/dashboard/property" className="block"><Button className='px-2 text-sm font-bold lg:px-24'>Add Property</Button></Link>
                 </div>
             </div>
-            <div className='flex flex-col justify-center self-center w-full'>
+            <div className='flex flex-col self-center justify-center w-full'>
                 <div className="flex flex-col lg:flex-row">
-                    <div className="flex flex-row items-center w-full lg:w-4/12 mt-4">
-                        <label htmlFor="email" className="relative text-gray-400 focus-within:text-gray-600 block w-full font-rubik">
+                    <div className="flex flex-row items-center w-full mt-4 lg:w-4/12">
+                        <label htmlFor="email" className="relative block w-full text-gray-400 focus-within:text-gray-600 font-rubik">
 
-                            <Search className="pointer-events-none w-4 h-4 absolute top-1/2 transform -translate-y-1/2 left-3" />
+                            <Search className="absolute w-4 h-4 transform -translate-y-1/2 pointer-events-none top-1/2 left-3" />
 
-                            <input type="email" name="search" id="search" placeholder="Search" className="form-input w-full pl-8 py-2 border border-gray-300 rounded-sm outline-1" />
+                            <input type="email" name="search" id="search" placeholder="Search" className="w-full py-2 pl-8 border border-gray-300 rounded-sm form-input outline-1" />
                         </label>
                     </div>
-                    <div className="flex flex-row justify-evenly align-middle items-center mt-3 bg-neutral-100 rounded-sm border border-gray-200 py-2 w-6/12 lg:w-auto lg:ml-3 px-4">
-                        <Filter className="text-gray-400 text-xs mr-2" />
-                        <span className="text-gray-500 text-sm">Filter by Date</span>
+                    <div className="flex flex-row items-center w-6/12 px-4 py-2 mt-3 align-middle border border-gray-200 rounded-sm justify-evenly bg-neutral-100 lg:w-auto lg:ml-3">
+                        <Filter className="mr-2 text-xs text-gray-400" />
+                        <span className="text-sm text-gray-500">Filter by Date</span>
                     </div>
                 </div>
                 <div className='py-10 lg:hidden'>
@@ -86,40 +87,40 @@ export default function Properties() {
                             <TableRow className="border-b border-gray-400">
                                 <TableCell className="">
                                     <div className="flex flex-row">
-                                        <img src="/images/living-room-lg.png" className="w-36 mr-4" alt="" />
+                                        <img src="/images/living-room-lg.png" className="mr-4 w-36" alt="" />
                                         <div className="flex flex-col self-center">
                                             <h4 className="text-[16px]">Adeola Odeku Estate, Lekki</h4>
                                             <p className="text-gray-400">34, Chirs Festroad, Lagos, CO 10021</p>
                                         </div>
                                     </div>
                                 </TableCell>
-                                <TableCell><button className="bg-primary text-white text-sm font-rubik py-2 px-3">Accepting Application</button></TableCell>
+                                <TableCell><button className="px-3 py-2 text-sm text-white bg-primary font-rubik">Accepting Application</button></TableCell>
                                 <TableCell>₦120,394</TableCell>
                                 <TableCell>23</TableCell>
-                                <TableCell className=""><MoreVertical className="text-gray-600 h-5"/></TableCell>
+                                <TableCell className=""><MoreVertical className="h-5 text-gray-600" /></TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
                 </div>
-                <div className="relative pt-4 pb-8 z-50 bg-white">
+                <div className="relative z-50 pt-4 pb-8 bg-white">
                     <div className="">
-                        <div className="flex flex-row lg:justify-end text-sm space-x-2">
-                            <div className="p-1 border rounded-md border-gray-400 text-gray-400">
+                        <div className="flex flex-row space-x-2 text-sm lg:justify-end">
+                            <div className="p-1 text-gray-400 border border-gray-400 rounded-md">
                                 <ChevronLeft />
                             </div>
-                            <div className="flex items-center justify-center rounded-md py-1 px-4 border border-primary bg:white text-primary hover:text-white hover:bg-primary">
+                            <div className="flex items-center justify-center px-4 py-1 border rounded-md border-primary bg:white text-primary hover:text-white hover:bg-primary">
                                 <span>1</span>
                             </div>
-                            <div className="flex items-center justify-center rounded-md py-1 px-4 border border-primary bg:white text-primary hover:text-white hover:bg-primary">
+                            <div className="flex items-center justify-center px-4 py-1 border rounded-md border-primary bg:white text-primary hover:text-white hover:bg-primary">
                                 <span>2</span>
                             </div>
-                            <div className="flex items-center justify-center rounded-md py-1 px-4 border border-primary bg:white text-primary hover:text-white hover:bg-primary">
+                            <div className="flex items-center justify-center px-4 py-1 border rounded-md border-primary bg:white text-primary hover:text-white hover:bg-primary">
                                 <span>3</span>
                             </div>
-                            <div className="flex items-center justify-center rounded-md py-1 px-4 border border-primary bg:white text-primary hover:text-white hover:bg-primary">
+                            <div className="flex items-center justify-center px-4 py-1 border rounded-md border-primary bg:white text-primary hover:text-white hover:bg-primary">
                                 <span>4</span>
                             </div>
-                            <div className="p-1 border rounded-md border-gray-400  text-gray-400">
+                            <div className="p-1 text-gray-400 border border-gray-400 rounded-md">
                                 <ChevronRight />
                             </div>
                         </div>

@@ -21,11 +21,11 @@ export default function DashLayout({
   const pathname = usePathname();
 
   if (pathname.includes('/properties/')) {
-    return <main className='md:flex' >
-      <section className='hidden w-5/12 h-screen border md:block'>
-        <ProgressTracker progress={[{ checked: true }, { checked: false }, { checked: false }, { checked: false }, { checked: true }]} />
+    return <main className='flex ' >
+      <section className='hidden md:w-4/12 lg:block'>
+        <ProgressTracker />
       </section>
-      <section className='w-7/12'>
+      <section className='w-full h-screen max-w-4xl mx-auto overflow-scroll sm:w-8/12 lg:w-5/12 hidescroll '>
         {children}
       </section>
     </main>

@@ -31,11 +31,11 @@ img {
   height: 100%;
   object-fit: cover;
 }
-.scrolls::-webkit-scrollbar {
+.hidescroll::-webkit-scrollbar {
   display: none;
 }
 
-.scrolls {
+.hidescroll {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
 }

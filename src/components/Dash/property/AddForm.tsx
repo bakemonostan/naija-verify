@@ -49,11 +49,11 @@ export default function AddForm() {
         console.log(values)
     }
     return (
-        <div className="flex flex-col justify-center mx-auto justify-items-center w-12/12">
+        <div className="flex flex-col justify-center mx-auto justify-items-center ">
             <div className='flex flex-col self-center justify-center w-full px-4'>
                 <div>
                     <div className="py-6">
-                        <Form {...form}>
+                        < Form {...form}>
                             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                                 <FormField
                                     control={form.control}
@@ -218,11 +218,11 @@ export default function AddForm() {
 
                                 <Button type="submit" >Next</Button>
                             </form>
-                        </Form>
-                    </div>
-                </div>
+                        </Form >
+                    </div >
+                </div >
 
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
