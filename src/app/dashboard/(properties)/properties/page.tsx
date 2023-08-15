@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,12 +10,6 @@ export default function Properties() {
                 <p className='text-gray-400'>View all the properties you have</p>
             </div>
             <div className='flex flex-col self-center justify-center min-w-full '>
-                {/* <Image
-                    src="/images/missing.png" // Route of the image file
-                    width={50} 
-                    height={50}
-                    alt="Your Name"
-                /> */}
                 <img src="/images/missing.png" alt="" className='self-center w-52 lg:mt-12' />
                 <div className='py-10 text-center'>
                     <h1 className='text-xl'>No property listed</h1>

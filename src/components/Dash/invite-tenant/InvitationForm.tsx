@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 import SolidUserIcon from "@/components/Icons/SolidUserIcon";
 import DocumentIcon from "@/components/Icons/DocumentIcon";
