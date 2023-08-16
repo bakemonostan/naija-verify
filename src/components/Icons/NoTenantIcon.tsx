@@ -9,7 +9,7 @@ export default function NoTenantIcon({
             height={height} viewBox="0 0 156 101" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_865_2640)">
                 <rect x="0.319824" y="0.717773" width="154.921" height="99.8306" rx="1.66941" fill="white" />
-                <rect x="0.319824" y="0.717773" width="14.6908" height="99.8306" fill="#0AB34E" />
+                <rect x="0.319824" y="0.717773" width="14.6908" height="99.8306" fill="#1a41b6" />
                 <rect width="33.3881" height="99.8306" transform="matrix(-1 0 0 1 48.3989 0.717773)" fill="#4EDD70" />
                 <rect x="54.9092" y="12.0693" width="28.213" height="4.00658" rx="2.00329" fill="#465E9C" />
                 <rect x="20.3525" y="45.291" width="16.1933" height="3.33881" rx="1.66941" fill="#CECEC7" />
@@ -23,16 +23,16 @@ export default function NoTenantIcon({
                 <circle cx="66.5951" cy="82.1854" r="3.50576" fill="#60779A" />
                 <rect x="105.326" y="12.0693" width="42.236" height="25.2081" rx="3.33881" fill="#B5B9BA" fill-opacity="0.45" />
                 <rect x="113.505" y="21.252" width="4.84128" height="12.5206" fill="#C3F8D8" />
-                <rect x="113.505" y="21.252" width="4.84128" height="7.01151" fill="#0AB34E" />
+                <rect x="113.505" y="21.252" width="4.84128" height="7.01151" fill="#1a41b6" />
                 <rect x="121.185" y="18.2471" width="4.84128" height="15.5255" fill="#C3F8D8" />
-                <rect x="121.185" y="18.2471" width="4.84128" height="10.0164" fill="#0AB34E" />
+                <rect x="121.185" y="18.2471" width="4.84128" height="10.0164" fill="#1a41b6" />
                 <rect x="128.864" y="18.2471" width="4.84128" height="15.5255" fill="#C3F8D8" />
-                <rect x="128.864" y="16.5771" width="4.84128" height="7.17845" fill="#0AB34E" />
+                <rect x="128.864" y="16.5771" width="4.84128" height="7.17845" fill="#1a41b6" />
                 <rect x="136.543" y="18.2471" width="4.84128" height="15.5255" fill="#C3F8D8" />
-                <rect x="136.544" y="16.5771" width="4.84128" height="7.17845" fill="#0AB34E" />
+                <rect x="136.544" y="16.5771" width="4.84128" height="7.17845" fill="#1a41b6" />
                 <rect x="18.0156" y="71.167" width="27.2113" height="22.8709" rx="5.00822" fill="#C4C4C4" fill-opacity="0.3" />
                 <ellipse cx="31.2874" cy="20.1662" rx="13.2718" ry="13.6057" fill="#DCDDE1" />
-                <mask id="mask0_865_2640"  maskUnits="userSpaceOnUse" x="18" y="6" width="27" height="28">
+                <mask id="mask0_865_2640" maskUnits="userSpaceOnUse" x="18" y="6" width="27" height="28">
                     <ellipse cx="31.2874" cy="20.1662" rx="13.2718" ry="13.6057" fill="#DCDDE1" />
                 </mask>
                 <g mask="url(#mask0_865_2640)">

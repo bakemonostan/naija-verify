@@ -3,6 +3,7 @@ import authReducer from "./slices/authSlice";
 import settingsReducer from "./slices/settingsSlice";
 import inviteTenantReducer from "./slices/inviteTenantSlice";
 import multiStepFormReducer from "./slices/multiStepFormSlice";
+import tenantPageReducer from "./slices/tenantSlice";
 import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     settings: settingsReducer,
     inviteTenant: inviteTenantReducer,
     multiStepForm: multiStepFormReducer,
+    tenantPage: tenantPageReducer,
   },
 });
 
