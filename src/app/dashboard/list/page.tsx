@@ -75,7 +75,7 @@ export default function Properties() {
                 <div>
                     <Table className="mt-6">
                         <TableHeader className="bg-[#F5F7FE] text-[#747474] hover:bg-neutral-50">
-                            <TableRow className="font-rubik text-[16px] font-normal hover:bg-green-400">
+                            <TableRow className="font-rubik text-[16px] font-normal">
                                 <TableHead className="w-4/12 font-normal">Property</TableHead>
                                 <TableHead className="w-2/12 font-normal">Status</TableHead>
                                 <TableHead className="w-2/12 font-normal">Price</TableHead>

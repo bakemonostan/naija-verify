@@ -63,9 +63,9 @@ export default function MaintenancePage() {
                                 <input type="email" name="search" id="search" placeholder="Search" className="w-full py-2 pl-8 border border-gray-400 rounded-sm form-input outline-1" />
                             </label>
                         </div>
-                        <div className="flex flex-col lg:flex-row lg:w-6/12 space-y-4 lg:space-x-6">
+                        <div className="flex flex-col lg:flex-row lg:w-6/12 mx-4 space-y-4 lg:space-x-6">
                             <Select >
-                                <SelectTrigger className="border w-full border-gray-400 text-gray-400 flex flex-row justify-between px-2 py-2">
+                                <SelectTrigger className="border w-full border-gray-400 text-gray-400 flex flex-row justify-between px-2">
                                     <p className="">Select Priority</p>
                                 </SelectTrigger>
                                 <SelectContent className="min-w-max py-5 px-4 space-y-4 font-rubik rounded-none shadow-sm">
@@ -121,7 +121,7 @@ export default function MaintenancePage() {
                                         <MaintenanceCard />
                                         <MaintenanceCard />
                                     </TabsContent>
-                                    <TabsContent value="newRequest" className='flex flex-col items-center justify-center mx-auto' value='tenant'>
+                                    <TabsContent value="newRequest" className='flex flex-col items-center justify-center mx-auto' >
 
                                     </TabsContent>
 
