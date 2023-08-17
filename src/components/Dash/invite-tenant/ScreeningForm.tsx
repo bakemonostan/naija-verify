@@ -26,7 +26,6 @@ import * as z from "zod"
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "@/redux/store";
 import { InvitationType, chooseInvitationType } from "@/redux/slices/inviteTenantSlice";
-import { set } from "date-fns";
 
 const FormSchema = z.object({
     fullName: z.string().nonempty({ message: "Full name is required" }),

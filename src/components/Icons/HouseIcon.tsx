@@ -1,6 +1,6 @@
 import { SvgProps } from "./Icontype";
 
-export default function HouseIcon({ width, height, color = '#0AB34E' }: SvgProps) {
+export default function HouseIcon({ width, height, color = '#1A41B6' }: SvgProps) {
     return (
         <svg
             width={width}

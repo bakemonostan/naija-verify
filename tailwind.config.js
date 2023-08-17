@@ -7,6 +7,12 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    screens: {
+      ...require("tailwindcss/defaultConfig").theme.screens,
+      "2lg": "1280px",
+      xxl: "122rem",
+    },
+
     container: {
       center: true,
       padding: "2rem",

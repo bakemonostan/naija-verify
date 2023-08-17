@@ -1,6 +1,6 @@
 import { SvgProps } from "./Icontype";
 
-export default function keyIcon({ width, height, color = '#1a41b6' }: SvgProps) {
+export default function KeyIcon({ width, height, color = '#1a41b6' }: SvgProps) {
     return (
         <svg
             width={width}
