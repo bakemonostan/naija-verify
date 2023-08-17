@@ -10,7 +10,7 @@ export default function RentalManagment({ }: Props) {
                     <div className='max-w-[21rem] mx-auto space-y-4'>
                         <div className='pt-5 pb-4 space-y-5 text-center'>
                             <h2 className='font-semibold text-[#66E5FF] text-sm'>RENTAL MANAGEMENT TOOLS</h2>
-                            <h3 className='text-2xl'>
+                            <h3 className='px-4 text-xl'>
                                 <span className='font-semibold text-[#66E5FF]'>
                                     Efficiently manage renters
                                 </span>

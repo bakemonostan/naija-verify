@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button"
 import { Shell } from "./Shell"
+import LandlordComments from "./LandlordComments"
 
 type Props = {}
 export default function Screening({ }: Props) {
@@ -18,14 +19,19 @@ export default function Screening({ }: Props) {
                         </h4>
                         <p className="text-sm leading-6 text-secondary-40">
                             All NaijaVerify applications include industry-standard questions, a TransUnion screening report, and the option to add your own customized questions.
-
                             Gain insight into potential tenants' financial, criminal, and eviction history — for $0 on your end.
-
                             Screening reports are available separately from rental applications, if needed, and can include Income Insights to verify applicant-reported income against data from TransUnion.
                         </p>
+                        <span className="text-sm font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
+                    </div>
+                    <div className="py-6">
+                        <div>
+                            <img src="/images/graph.svg" alt="" />
+                        </div>
                     </div>
                 </div>
             </Shell>
+            <LandlordComments />
             <div className="pb-16 bg-[#F0FCFF]">
                 <Shell >
                     <div className='max-w-[21rem] mx-auto space-y-4'>

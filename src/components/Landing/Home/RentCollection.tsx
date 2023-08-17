@@ -18,7 +18,14 @@ export default function RentCollection({ }: Props) {
                             Automate your online rent payments. Unlike Zelle, Venmo, or physical checks, our secure tool was made exclusively to meet the needs of real estate investors.
                             It is easy to connect your bank account, and intuitive for you and your tenants to use.
                             You will get easy tracking, payment history, automatic reminders and late fees, receipts, and automatic payments — free with our landlord software.
+                            <br />
+                            <span className="text-sm font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
                         </p>
+                    </div>
+                    <div className="pt-4">
+                        <div>
+                            <img src="/images/chart.svg" alt="" />
+                        </div>
                     </div>
                     <Icons />
                 </div>
