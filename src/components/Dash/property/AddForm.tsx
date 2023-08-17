@@ -54,8 +54,8 @@ export default function AddForm() {
             <div className='flex flex-col self-center justify-center w-full px-4'>
                 <div>
                     <div className="py-6">
-                        < Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+                        < Form {...form} >
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-2 font-rubik">
                                 <FormField
                                     control={form.control}
                                     name="address"
@@ -72,38 +72,41 @@ export default function AddForm() {
                                         </FormItem>
                                     )}
                                 />
-                                <FormField
-                                    control={form.control}
-                                    name="total"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Total Unit</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter Unit" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
+                                    <FormField
+                                        control={form.control}
+                                        name="total"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel className="">Total Unit</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter Unit" {...field} className="w-6/12 min-w-full" />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="city"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>City</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter City" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="city"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>City</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter City" {...field} className="min-w-full"/>
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                </div>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
                                 <FormField
                                     control={form.control}
                                     name="state"
@@ -136,6 +139,7 @@ export default function AddForm() {
                                         </FormItem>
                                     )}
                                 />
+                                </div>
                                 <FormField
                                     control={form.control}
                                     name="propertytype"
@@ -152,6 +156,7 @@ export default function AddForm() {
                                         </FormItem>
                                     )}
                                 />
+                                <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
                                 <FormField
                                     control={form.control}
                                     name="propertytype"
@@ -216,6 +221,7 @@ export default function AddForm() {
                                         </FormItem>
                                     )}
                                 />
+                                </div>
 
                                 <Button type="submit"
 

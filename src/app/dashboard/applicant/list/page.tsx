@@ -11,42 +11,38 @@ import {
 } from "@/components/ui/table"
 import Link from "next/link";
 //Todo: add props & type definations
-function Property() {
+
+function ApplicantCard() {
     return (
-        <div className='flex flex-col w-full border border-gray-400'>
-            <div className='flex flex-row items-center justify-between px-4 py-4'>
-                <div className=''>
-                    <h4 className='text-sm font-prompt'>Adeola Odeku Estate, Lekki</h4>
-                    <p className='text-secondary-10 text-[12px]'>34, Chirs Festroad, Lagos, CO 10021</p>
+        <div className=" flex flex-col border border-gray-300 ">
+            <div className="flex flex-row w-full space-x-3 items-center px-3 py-4 border-b border-gray-300">
+                <div className="flex flex-col mr-6">
+                    <h4 className="font-prompt font-normal text-sm ">Bolaji Suraji</h4>
+                    <p className="text-gray-400 font-rubik text-xs">+234783993721</p>
                 </div>
-                <div>
-                    <MoreVertical className='h-5 text-gray-600' />
+                <div className="font-rubik">
+                    <p className="text-gray-400 text-xs">Tenancy Period:  <span className="text-gray-700 text-sm">3 years</span></p>
                 </div>
+                <div><MoreVertical className="h-4" /></div>
             </div>
-            <div className=''>
-                <div className='w-11/12 h-px mx-auto bg-gray-200'></div>
+            <div className="font-rubik px-3 py-4 border-b border-gray-300">
+                <p className="text-gray-400 text-xs">Property: <span className="text-gray-700 text-sm">Adeola Odeku Estate, Lekki</span></p>
             </div>
-            <div className='flex flex-row items-center py-4 justify-evenly'>
-                <div className=''>
-                    <p className='text-sm'><span className='text-[12px] text-secondary-10'> Price: </span> ₦120,394 </p>
-                </div>
-                <div className=''>
-                    <p className='text-sm'><span className='text-[12px] text-secondary-10'> Tenant: </span> 23</p>
-                </div>
-                <div>
-                    <Button className='text-[10px] py-2'>Accepting</Button>
-                </div>
+            <div className="flex flex-row px-3 py-4 space-x-3">
+            <p className="text-gray-400 text-xs">Desired Move in Date: <span className="text-gray-700 text-sm"> 12/01/2020</span></p>
+            <button className="px-3 py-2 text-sm text-white bg-green-600 font-rubik self-center">Screened</button>
             </div>
         </div>
     )
 }
-export default function Properties() {
+
+export default function ApplicantList() {
     return (
-        <div className="flex flex-col justify-center w-full ">
+        <div className="flex flex-col justify-center w-full">
             <div className='flex flex-col py-6 lg:flex-row lg:justify-between'>
                 <div>
-                    <h2 className='text-[26px] font-semibold '>Properties</h2>
-                    <p className='text-gray-400'>View all the properties you have</p>
+                    <h2 className='text-[26px] font-semibold '>Applicants</h2>
+                    <p className='text-gray-400'>See all your tenants here</p>
 
                 </div>
 
@@ -70,33 +66,37 @@ export default function Properties() {
                     </div>
                 </div>
                 <div className='py-10 lg:hidden'>
-                    <div className='space-y-3'><Property /><Property /><Property /></div>
+                    <div className='space-y-3'><ApplicantCard /><ApplicantCard /><ApplicantCard /></div>
                 </div>
                 <div>
                     <Table className="mt-6">
                         <TableHeader className="bg-[#F5F7FE] text-[#747474] hover:bg-neutral-50">
                             <TableRow className="font-rubik text-[16px] font-normal">
-                                <TableHead className="w-4/12 font-normal">Property</TableHead>
+                                <TableHead className="w-4/12 font-normal">Applicant</TableHead>
+                                <TableHead className="w-2/12 font-normal">Properties</TableHead>
+                                <TableHead className="w-2/12 font-normal">Phone Number</TableHead>
+                                <TableHead className="w-2/12 font-normal">Date</TableHead>
                                 <TableHead className="w-2/12 font-normal">Status</TableHead>
-                                <TableHead className="w-2/12 font-normal">Price</TableHead>
-                                <TableHead className="w-2/12 font-normal">Tenant</TableHead>
-                                <TableHead className="w-2/12 font-normal">Actions</TableHead>
+                                <TableHead className="w-2/12 font-normal">Tenancy Period</TableHead>
+
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             <TableRow className="border-b border-gray-400">
                                 <TableCell className="">
-                                    <div className="flex flex-row">
-                                        <img src="/images/living-room-lg.png" className="mr-4 w-36" alt="" />
-                                        <div className="flex flex-col self-center">
-                                            <h4 className="text-[16px]">Adeola Odeku Estate, Lekki</h4>
-                                            <p className="text-gray-400">34, Chirs Festroad, Lagos, CO 10021</p>
-                                        </div>
-                                    </div>
+                                    <p>Bolaji Suraj</p>
                                 </TableCell>
-                                <TableCell><button className="px-3 py-2 text-sm text-white bg-primary font-rubik">Accepting Application</button></TableCell>
-                                <TableCell>₦120,394</TableCell>
-                                <TableCell>23</TableCell>
+                                <TableCell>
+                                    <p>Adeola Odeku Estate Lek...</p>
+                                </TableCell>
+                                <TableCell>
+                                    <p>+234783993721</p>
+                                </TableCell>
+                                <TableCell>
+                                    <p>12/01/2020</p>
+                                </TableCell>
+                                <TableCell><button className="px-3 py-2 text-sm text-white bg-green-600 font-rubik">Screened</button></TableCell>
+                                <TableCell>3 Years</TableCell>
                                 <TableCell className=""><MoreVertical className="h-5 text-gray-600" /></TableCell>
                             </TableRow>
                         </TableBody>

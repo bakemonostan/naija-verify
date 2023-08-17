@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Utilities() {
     const router = useRouter();
     return (
-        <div className="flex flex-col justify-center justify-items-center w-12/12 mx-auto">
+        <div className="flex flex-col w-12/12 mx-auto">
             <div className="flex lg:flex-row justify-between py-6 px-4">
 
                 <div className=''>
