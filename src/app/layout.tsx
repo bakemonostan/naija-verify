@@ -1,10 +1,10 @@
-import { ReduxProvider } from '@/redux/provider'
 
+import { ReduxProvider } from '@/redux/provider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Prompt, Rubik } from 'next/font/google'
-import SideBar from '@/components/SideBar'
-import TopBar from '@/components/TopBar'
+import Navbar from '@/components/Landing/Navbar'
+
 
 const titleFont = Prompt(
   {
@@ -15,7 +15,7 @@ const titleFont = Prompt(
 )
 const rubik_c = Rubik({
   preload: false,
-  weight: ['300','400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-rubik',
 
 })
@@ -29,6 +29,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en">
       <ReduxProvider>

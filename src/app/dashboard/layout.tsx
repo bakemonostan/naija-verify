@@ -30,7 +30,7 @@ export default function DashLayout({
       </section>
     </main>
   } else {
-    return <main className='' >
+    return <main>
       <div className='flex flex-col' onClick={() => { isOpen ? setIsOpen(false) : console.log('') }}>
         <TopBar />
         <div className='flex flex-row'>
