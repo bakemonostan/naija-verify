@@ -116,6 +116,7 @@ export default function MaintenancePage() {
 
                                 </TabsList>
                                 <div className='w-full py-2'>
+                                    
                                     <TabsContent value="allRequests" className='w-full space-y-4'>
                                         <MaintenanceCard />
                                         <MaintenanceCard />
