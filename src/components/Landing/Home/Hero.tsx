@@ -32,7 +32,7 @@ export default function Hero() {
                     </div>
 
                     <div className="hidden w-1/2 lg:block">
-                        <img src="/images/hero.svg" alt="hero" className='w-full' />
+                        <img src='/images/heroImg.svg' alt="hero" className='w-full lg:block' />
                     </div>
                 </div>
             </section>
