@@ -107,9 +107,6 @@ export default function LandlordComments({ }: Props) {
                             <p className="text-[1rem] pb-1.5 text-primary font-semibold">Adam James</p>
                             <h6 className="text-[.6rem]">C.E.O Gentry Farms</h6>
                         </div>
-
-
-
                     </div>
                 </div>
             </Shell>

@@ -24,12 +24,12 @@ export default function Screening({ }: Props) {
                         <p className="text-sm leading-6 text-secondary-40 lg:text-lg">
                             Gain insight into potential tenants' financial, criminal, and eviction history — for $0 on your end.
                         </p>
-                        <p className="text-sm leading-6 text-secondary-40 lg:text-lg">
+                        <p className="pb-5 text-sm leading-6 text-secondary-40 lg:text-lg">
                             Screening reports are available separately from rental applications, if needed, and can include Income Insights to verify applicant-reported income against data from TransUnion.
                         </p>
-                        <span className="text-sm font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
+                        <span className="text-lg font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
                     </div>
-                    <div className="py-6 lg:w-1/2">
+                    <div className="py-6 lg:w-1/2 lg:py-16">
                         <div>
                             <img src="/images/graph.svg" alt="" />
                         </div>
@@ -37,7 +37,7 @@ export default function Screening({ }: Props) {
                 </div>
             </Shell>
             <LandlordComments />
-            <div className="pb-16 bg-[#F0FCFF]">
+            <div className="pb-16 bg-[#F0FCFF] lg:py-16 border border-red-700">
                 <Shell >
                     <div className='max-w-[21rem] mx-auto lg:max-w-[50rem] space-y-4'>
                         <div className='pt-5 pb-1 space-y-5 text-center'>
@@ -47,14 +47,12 @@ export default function Screening({ }: Props) {
                         </div>
                         <div className="px-2 pb-5 space-y-3 text-sm text-center text-secondary-40 lg:text-[1rem]">
                             <h3 >
-                                There's only one property management solution to help you get the job done.
+                                No tricks or trials to worry about. So what is the harm? Try it today!
                             </h3>
-                            <h3 >
-                                Sign up today to access our free landlord software. Recommended by landlords with both small and large portfolios.
-                            </h3>
+
                         </div>
-                        <div className="mx-auto w-52">
-                            <Button className="font-semibold text-white bg-primary">Create a free account</Button>
+                        <div className="mx-auto w-60">
+                            <Button className="text-lg font-semibold text-white bg-primary">Create a free account</Button>
                         </div>
                     </div>
                 </Shell>

@@ -5,7 +5,7 @@ import { Shell } from "./Home/Shell"
 type Props = {}
 export default function Footer({ }: Props) {
     return (
-        <section className="py-6 text-white bg-black lg:py-20">
+        <section className="py-6 text-white bg-black border border-red-400 lg:py-20">
             <Shell>
                 <div className='max-w-[21rem] mx-auto space-y-4 lg:flex lg:max-w-full  lg:flex-row-reverse items-start lg:space-y-0'>
                     <div className="space-y-4 lg:w-1/3">
