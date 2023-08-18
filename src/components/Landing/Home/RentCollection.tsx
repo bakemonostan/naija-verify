@@ -7,7 +7,7 @@ import { Check } from "lucide-react"
 type Props = {}
 export default function RentCollection({ }: Props) {
     return (
-        <section className='py-5 lg:py-10 lg:pb-16 '>
+        <section className='py-5 lg:py-10 lg:pb-16 lg:pt-24 '>
             <Shell>
                 <div className='max-w-[21rem] mx-auto space-y-4 lg:space-y-0 lg:max-w-full lg:flex'>
                     <div className="space-y-2 lg:w-1/2 lg:pt-6 lg:space-y-7 lg:pr-28">
@@ -21,11 +21,11 @@ export default function RentCollection({ }: Props) {
                             Automate your online rent payments. Unlike Zelle, Venmo, or physical checks, our secure tool was made exclusively to meet the needs of real estate investors.
                             It is easy to connect your bank account, and intuitive for you and your tenants to use.
                         </p>
-                        <p className="text-sm leading-6 text-secondary-40 lg:text-lg">
+                        <p className="pb-6 text-sm leading-6 text-secondary-40 lg:text-lg">
                             You will get easy tracking, payment history, automatic reminders and late fees, receipts, and automatic payments — free with our landlord software.
                             <br />
-                            <span className="text-sm font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
                         </p>
+                        <span className="text-lg font-semibold cursor-pointer text-primary">Learn more {`>>>`}</span>
                     </div>
                     <div className="pt-4 pb-6 lg:w-1/2 lg:pt-0 lg:pb-24 ">
                         <div className="">
@@ -35,7 +35,7 @@ export default function RentCollection({ }: Props) {
                 </div>
                 {/* Rent with confidence */}
             </Shell>
-            <div className="pb-16 bg-[#F0FCFF] lg:py-16">
+            <div className="pb-16 bg-[#F0FCFF] lg:py-20">
                 <Shell >
                     <div className='max-w-[21rem] lg:max-w-[56rem] mx-auto space-y-4'>
                         <div className='pt-5 pb-1 space-y-5 text-center'>

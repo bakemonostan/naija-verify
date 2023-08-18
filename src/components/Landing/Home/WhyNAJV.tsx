@@ -4,7 +4,7 @@ import { Shell } from "./Shell"
 type Props = {}
 export default function WhyNAJV({ }: Props) {
     return (
-        <div className="pb-10 text-white bg-primary lg:py-10 lg:pb-28">
+        <div className="pb-10 text-white bg-primary lg:py-10 lg:pb-32">
             <Shell >
                 <div className='max-w-[21rem] mx-auto space-y-4 lg:max-w-[48rem]'>
                     <div className='pt-5 pb-4 space-y-5 text-center'>
