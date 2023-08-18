@@ -37,7 +37,7 @@ export default function Screening({ }: Props) {
                 </div>
             </Shell>
             <LandlordComments />
-            <div className="pb-16 bg-[#F0FCFF] lg:py-16 border border-red-700">
+            <div className="pb-16 bg-[#F0FCFF] lg:py-16 ">
                 <Shell >
                     <div className='max-w-[21rem] mx-auto lg:max-w-[50rem] space-y-4'>
                         <div className='pt-5 pb-1 space-y-5 text-center'>
