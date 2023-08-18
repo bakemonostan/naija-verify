@@ -7,7 +7,7 @@ import LandlordComments from "./LandlordComments"
 type Props = {}
 export default function Screening({ }: Props) {
     return (
-        <section className='py-5 lg:py-15'>
+        <section className=''>
             <Shell>
                 <div className='max-w-[21rem] mx-auto space-y-4 lg:flex lg:flex-row-reverse gap-16 lg:max-w-full lg:pb-14'>
                     <div className="space-y-2 lg:w-1/2 lg:space-y-4 lg:mt-16 lg:ml-24">
