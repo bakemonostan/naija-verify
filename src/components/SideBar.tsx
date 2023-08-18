@@ -12,7 +12,9 @@ export default function SideBar({ expanded }: SideBarProps) {
       <div className={`fixed overflow-auto bg-[#1E1E1E]  text-white w-auto h-full font-rubik lg:block ${expanded ? 'block' : 'hidden'}`}>
         <div className="flex flex-col px-14 ">
           <div className="hidden py-12 md:flex ">
-            <LogoIcon variant='dark' />
+            <Link href="/">
+              <LogoIcon variant='dark' />
+            </Link>
           </div>
           <div>
             <ul className="flex flex-col text-[16px] font-normal">

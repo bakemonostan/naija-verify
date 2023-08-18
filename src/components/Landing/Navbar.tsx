@@ -36,7 +36,9 @@ export default function Navbar({ }: Props) {
         <nav className=" px-5 xl:px-8 py-3.5 shadow-md w-full lg:shadow-none">
             <div className="flex items-center justify-between mx-auto max-w-[95rem]">
                 <div>
-                    <LogoIcon />
+                    <Link href="/">
+                        <LogoIcon />
+                    </Link>
                 </div>
                 <div className="flex items-center gap-3 lg:hidden">
                     <Button className="px-2 py-1 " variant="outline" title="Login" type="button">Login</Button>
@@ -54,8 +56,11 @@ export default function Navbar({ }: Props) {
 
                 <div className="hidden gap-4 lg:flex">
                     <Link href='/auth/login' className="block">
-                        <Button className="py-2.5 w-28" variant="outline" title="Login">Login</Button></Link>
-                    <Button className="py-2.5  w-28" >Register</Button>
+                        <Button className="py-2.5 w-28" variant="outline" title="Login">Login</Button>
+                    </Link>
+                    <Link href='/auth/register' className="block">
+                        <Button className="py-2.5  w-28" >Register</Button>
+                    </Link>
                 </div>
             </div>
         </nav>

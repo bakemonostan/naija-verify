@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 export default function Hero() {
     return (
         <section className='pb-10 pt-14'>
-            <section className="xl:max-w-[95rem] w-full mx-auto" >
+            <section className="2xl:max-w-[95rem] w-full mx-auto" >
                 <div className="flex gap-8">
                     <div className='text-center  mx-auto max-w-[25rem] space-y-8 lg:max-w-full lg:w-1/2 lg:text-left lg:pt-16 xl:pt-24'>
                         <div className='items-end w-3/4 mx-auto space-y-6 lg:mx-0 md:w-full '>
