@@ -5,7 +5,7 @@ import VerifyRenterIcon from "@/components/Icons/VerifyRenterIcon"
 type Props = {}
 export default function Icons({ }: Props) {
     return (
-        <div className="w-full py-8 pt-14 lg:pt-28 lg:pb-20">
+        <div className="w-full py-8 pt-14 lg:py-36">
             <div className="flex flex-col items-center justify-center gap-4 lg:gap-12 lg:flex-row">
                 <div className="flex flex-col items-center justify-center w-full gap-6 mx-auto lg:gap-2 lg:pt-3">
                     <div>

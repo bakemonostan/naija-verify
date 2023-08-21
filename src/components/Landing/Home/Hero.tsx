@@ -4,15 +4,15 @@ import { Input } from "@/components/ui/input";
 
 export default function Hero() {
     return (
-        <section className='pb-10 pt-14'>
+        <section className='pb-10 pt-14 xl:pb-44 '>
             <section className="2xl:max-w-[95rem] w-full mx-auto" >
                 <div className="flex gap-8">
-                    <div className='text-center  mx-auto max-w-[25rem] space-y-8 lg:max-w-full lg:w-1/2 lg:text-left lg:pt-16 xl:pt-24'>
+                    <div className='text-center  mx-auto max-w-[25rem] space-y-8 lg:max-w-full lg:w-1/2 lg:text-left lg:pt-16 xl:pt-36'>
                         <div className='items-end w-3/4 mx-auto space-y-6 lg:mx-0 md:w-full '>
-                            <h1 className='text-2xl font-bold xl:tracking-wider lg:text-3xl 2lg:text-5xl 2xl:text-6xl'>Rent with Confidence <br className="hidden lg:block" /> By Tenant Screening!</h1>
-                            <h2 className='text-sm leading-6 text-secondary lg:text-lg '>
-                                Get the best real estate deals first,
-                                before they hit the mass <br className="hidden xl:block" /> market! HOT FORECLOSURE DEALS with one simple search
+                            <h1 className='text-2xl font-bold xl:tracking-wider lg:text-3xl 2lg:text-5xl 2xl:text-6xl'>All in one <span className="text-primary">
+                                Rental Management Software</span> </h1>
+                            <h2 className='text-sm leading-6 text-secondary lg:text-lg xl:pr-12'>
+                                Gain insights into previous rentals and landlords and their employment and income verification. It contains all the information you require to ensure that you rent to the right tenant.
                             </h2>
                         </div>
 
