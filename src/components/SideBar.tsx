@@ -1,6 +1,7 @@
 import LogoIcon from './Icons/LogoIcon'
 import { SideBarData } from '@/helpers/sidebar'
 import Link from 'next/link'
+import LogoutIcon from "@/components/Icons/LogoutIcon";
 
 interface SideBarProps {
   expanded: Boolean;
@@ -30,6 +31,14 @@ export default function SideBar({ expanded }: SideBarProps) {
                 )
               }
               )}
+              <li className='md:hidden bg-[#747474] flex py-1 px-3 mt-16 items-center gap-3 w-full rounded-lg hover:scale-110 hover:translate-x-2 cursor-pointer'>
+                <img src="/images/Base.png" className='h-11 w-11' alt="" />
+                <h3 className='ml-2 text-sm font-medium'>David O.</h3>
+              </li>
+              <li className='flex py-3.5 mx-2 mt-12 items-center gap-3 w-full hover:scale-110 hover:translate-x-2 cursor-pointer'>
+                <LogoutIcon width='25' />
+                <h3 className='ml-2'>Logout</h3>
+              </li>
             </ul>
           </div>
         </div>
