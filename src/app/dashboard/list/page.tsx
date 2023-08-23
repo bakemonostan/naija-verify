@@ -96,7 +96,7 @@ export default function Properties() {
                                 </TableCell>
                                 <TableCell><button className="px-3 py-2 text-sm text-white bg-primary font-rubik">Accepting Application</button></TableCell>
                                 <TableCell>₦120,394</TableCell>
-                                <TableCell>23</TableCell>
+                                <TableCell className="pl-8">23</TableCell>
                                 <TableCell className=""><MoreVertical className="h-5 text-gray-600" /></TableCell>
                             </TableRow>
                         </TableBody>

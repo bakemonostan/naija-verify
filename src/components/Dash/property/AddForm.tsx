@@ -13,7 +13,15 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
+
 const Property = z.object({
     address: z.string(),
     total: z.string(),
@@ -96,7 +104,7 @@ export default function AddForm() {
                                             <FormItem>
                                                 <FormLabel>City</FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Enter City" {...field} className="min-w-full"/>
+                                                    <Input placeholder="Enter City" {...field} className="min-w-full" />
                                                 </FormControl>
                                                 <FormDescription>
 
@@ -107,48 +115,93 @@ export default function AddForm() {
                                     />
                                 </div>
                                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
-                                <FormField
-                                    control={form.control}
-                                    name="state"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>State</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Select State" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                    <FormField
+                                        control={form.control}
+                                        name="state"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>State</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Select State" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="zipcode"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Zip Code</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter Zip Code" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="zipcode"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Zip Code</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter Zip Code" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
                                 </div>
                                 <FormField
                                     control={form.control}
                                     name="propertytype"
                                     render={({ field }) => (
                                         <FormItem>
+                                            <FormLabel>Property Category</FormLabel>
+                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                <FormControl>
+                                                    <SelectTrigger className="w-full border-gray-300">
+                                                        <SelectValue className="text-black" placeholder="Bungalow" />
+                                                    </SelectTrigger>
+                                                </FormControl>
+                                                <SelectContent>
+                                                    <SelectItem value="priv">Private dwellings</SelectItem>
+                                                    <SelectItem value="apartment">Apartment houses (flats) </SelectItem>
+                                                    <SelectItem value="bungalows">Bungalows</SelectItem>
+                                                    <SelectItem value="duplexes">Duplexes</SelectItem>
+                                                    <SelectItem value="storey">Storey Houses</SelectItem>
+                                                    <SelectItem value="terrace">Terrace buildings</SelectItem>
+                                                    <SelectItem value="apartmentb">Apartment buildings</SelectItem>
+                                                    <SelectItem value="condominium">Condominium buildings</SelectItem>
+                                                    <SelectItem value="hotels">Hotels</SelectItem>
+                                                    <SelectItem value="dormitories">Dormitories</SelectItem>
+                                                    <SelectItem value="semiD">Semi-detached buildings</SelectItem>
+
+                                                </SelectContent>
+                                            </Select>
+
+                                            <FormDescription>
+
+                                            </FormDescription>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="propertytype"
+                                    render={({ field }) => (
+                                        <FormItem>
                                             <FormLabel>Property Type</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Single Family" {...field} />
-                                            </FormControl>
+                                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                <FormControl>
+                                                    <SelectTrigger className="w-full border-gray-300">
+                                                        <SelectValue className="text-black" placeholder="Select Property" />
+                                                    </SelectTrigger>
+                                                </FormControl>
+                                                <SelectContent>
+                                                    <SelectItem value="Bungalow">Bungalow</SelectItem>
+                                                    <SelectItem value="Semi detach duplexm">Semi detach duplex</SelectItem>
+                                                    <SelectItem value="Warehouse">Warehouse</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+
                                             <FormDescription>
 
                                             </FormDescription>
@@ -157,70 +210,70 @@ export default function AddForm() {
                                     )}
                                 />
                                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
-                                <FormField
-                                    control={form.control}
-                                    name="propertytype"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Bedrooms</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Single Family" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                    <FormField
+                                        control={form.control}
+                                        name="propertytype"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Bedrooms</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Single Family" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="propertytype"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Baths</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter number of baths" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="propertytype"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Baths</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter number of baths" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="propertytype"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Rent Amount</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter Amount" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="propertytype"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Rent Amount</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter Amount" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="propertytype"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormLabel>Security Deposit</FormLabel>
-                                            <FormControl>
-                                                <Input placeholder="Enter Amount" {...field} />
-                                            </FormControl>
-                                            <FormDescription>
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="propertytype"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Security Deposit</FormLabel>
+                                                <FormControl>
+                                                    <Input placeholder="Enter Amount" {...field} />
+                                                </FormControl>
+                                                <FormDescription>
 
-                                            </FormDescription>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
+                                                </FormDescription>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
                                 </div>
 
                                 <Button type="submit"

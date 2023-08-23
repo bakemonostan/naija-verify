@@ -7,6 +7,7 @@ import ApplicantIcon from "@/components/Icons/ApplicantIcon";
 import ReportIcon from "@/components/Icons/ReportIcon";
 import SettingsIcon from "@/components/Icons/SettinigsIcon";
 
+
 interface ISideBarData {
   title: string;
   path: string;
