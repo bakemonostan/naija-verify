@@ -29,6 +29,7 @@ const Property = z.object({
     state: z.string(),
     zipcode: z.string(),
     propertytype: z.string(),
+    propertycategory:z.string(),
     bedrooms: z.string(),
     baths: z.string(),
     rent: z.string(),
@@ -185,7 +186,7 @@ export default function AddForm() {
                                 />
                                 <FormField
                                     control={form.control}
-                                    name="propertytype"
+                                    name="propertycategory"
                                     render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>Property Type</FormLabel>
@@ -212,7 +213,7 @@ export default function AddForm() {
                                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-3">
                                     <FormField
                                         control={form.control}
-                                        name="propertytype"
+                                        name="bedrooms"
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Bedrooms</FormLabel>
@@ -228,7 +229,7 @@ export default function AddForm() {
                                     />
                                     <FormField
                                         control={form.control}
-                                        name="propertytype"
+                                        name="baths"
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Baths</FormLabel>
@@ -244,7 +245,7 @@ export default function AddForm() {
                                     />
                                     <FormField
                                         control={form.control}
-                                        name="propertytype"
+                                        name="rent"
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Rent Amount</FormLabel>
@@ -260,7 +261,7 @@ export default function AddForm() {
                                     />
                                     <FormField
                                         control={form.control}
-                                        name="propertytype"
+                                        name="securitydeposit"
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Security Deposit</FormLabel>

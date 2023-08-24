@@ -6,7 +6,7 @@ import LeaseIcon from "@/components/Icons/LeaseIcon";
 import ApplicantIcon from "@/components/Icons/ApplicantIcon";
 import ReportIcon from "@/components/Icons/ReportIcon";
 import SettingsIcon from "@/components/Icons/SettinigsIcon";
-
+import { Mail } from 'lucide-react';
 
 interface ISideBarData {
   title: string;
@@ -20,6 +20,12 @@ export const SideBarData: ISideBarData[] = [
     path: "/dashboard",
     icon: DashboardIcon,
   },
+  {
+    title: "Messages",
+    path: "/dashboard/messages",
+    icon: Mail,
+  },
+  
   {
     title: "Properties",
     path: "/dashboard/properties",
