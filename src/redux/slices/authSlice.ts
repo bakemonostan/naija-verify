@@ -21,7 +21,7 @@ type InitialState = {
 
 const initialState = {
   value: {
-    isLoggedIn: false,
+    isLoggedIn: true,
     selectedUser: null,
   } as AuthState,
 } as InitialState;
